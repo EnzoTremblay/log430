@@ -1,0 +1,26 @@
+{
+    "redhat.telemetry.enabled": true,
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false
+    },
+    "plantuml.commandArgs": [
+        
+    ],
+    "plantuml.server": "https://www.plantuml.com/plantuml",
+    "plantuml.render": "PlantUMLServer",
+    "terminal.integrated.tabs.enabled": false,
+    "editor.minimap.enabled": false,
+    "vscode-office.editorTheme": "Auto",
+    "editor.stickyScroll.enabled": false,
+    "github.copilot.editor.enableAutoCompletions": true,
+    "workbench.editorAssociations": {
+        "*.copilotmd": "vscode.markdown.preview.editor"
+    },
+    "diffEditor.ignoreTrimWhitespace": false,
+    "remote.SSH.remotePlatform": {
+        "10.194.32.166": "linux"
+    },
+}

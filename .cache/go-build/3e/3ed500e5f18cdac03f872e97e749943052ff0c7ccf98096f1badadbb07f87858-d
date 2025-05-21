@@ -1,0 +1,7 @@
+./archive.go
+./doc.go
+./exec.go
+./image.go
+./pull.go
+./run.go
+./save.go

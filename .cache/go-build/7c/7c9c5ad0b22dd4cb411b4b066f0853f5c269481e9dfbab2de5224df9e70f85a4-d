@@ -1,0 +1,8 @@
+./bits.go
+./builder.go
+./builder_docker.go
+./builder_remote.go
+./builder_tarball.go
+./doc.go
+./source.go
+./tar.go

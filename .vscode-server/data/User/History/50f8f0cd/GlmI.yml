@@ -1,0 +1,8 @@
+version: '3.8'
+
+services:
+  app:
+    image: hello-world-app
+    build:
+      context: .
+    command: python app.py
