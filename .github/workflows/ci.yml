@@ -7,6 +7,7 @@ on:
   pull_request:
     branches:
       - main
+  workflow_dispatch: {}
 
 jobs:
   build:
@@ -19,7 +20,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.12'
+        python-version: '3.11'
 
     - name: Install dependencies
       run: |
@@ -34,7 +35,7 @@ jobs:
 
     - name: Build Docker image
       run: |
-        docker build -t hello-world-app .
+        docker build -t simontremblay99/magasin-app:latest .
 
     - name: Push Docker image to Docker Hub
       env:
@@ -42,5 +43,4 @@ jobs:
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
       run: |
         echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-        docker tag hello-world-app $DOCKER_USERNAME/hello-world-app:latest
-        docker push $DOCKER_USERNAME/hello-world-app:latest
+        docker push simontremblay99/magasin-app:latest

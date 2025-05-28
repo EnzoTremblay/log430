@@ -1,0 +1,11 @@
+@startuml
+
+actor Employe as Console
+
+database BaseDeDonnees
+
+Console -> BaseDeDonnees : Rechercher produit
+Console -> BaseDeDonnees : Enregistrer vente
+Console -> BaseDeDonnees : Mettre à jour stock
+
+@enduml

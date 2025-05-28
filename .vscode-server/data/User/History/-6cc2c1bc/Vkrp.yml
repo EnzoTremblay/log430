@@ -1,0 +1,7 @@
+github.com:
+    users:
+        EnzoTremblay:
+            oauth_token: "REDACTED"
+    git_protocol: ssh
+    user: EnzoTremblay
+    oauth_token: "REDACTED"

@@ -1,0 +1,27 @@
+@startuml
+
+class Produit {
+    - id: int
+    - nom: string
+    - categorie: string
+    - prix: float
+    - stock: int
+}
+
+class Vente {
+    - id: int
+    - produits: list<Produit>
+    - total: float
+    - date: datetime
+}
+
+class Utilisateur {
+    - id: int
+    - nom: string
+    - role: string
+}
+
+Produit <--> Vente
+Utilisateur --> Vente
+
+@enduml

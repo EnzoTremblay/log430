@@ -1,0 +1,17 @@
+# Utiliser une image Python légère comme base
+FROM python:3.12-slim
+
+# Définir le répertoire de travail dans le conteneur
+WORKDIR /app
+
+# Copier les fichiers nécessaires dans le conteneur
+COPY app.py /app/app.py
+COPY test_app.py /app/test_app.py
+COPY magasin.db /app/magasin.db
+
+# Installer pytest et sqlite3 pour les tests et la gestion de la base de données
+RUN pip install pytest && \
+    pip install --no-cache-dir sqlite3
+
+# Commande par défaut pour exécuter l'application
+CMD ["python", "app.py"]
