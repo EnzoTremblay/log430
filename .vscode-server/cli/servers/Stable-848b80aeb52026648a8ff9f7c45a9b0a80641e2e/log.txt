@@ -67,3 +67,59 @@ Extension host agent listening on /tmp/code-b8dbfc59-0ad2-4838-a110-be15f61a1c2d
 [11:08:42] Renamed to /home/log430/.vscode-server/extensions/github.copilot-1.323.0
 [11:08:42] Marked extension as removed github.copilot-1.322.0
 [11:08:42] Extension installed successfully: github.copilot file:///home/log430/.vscode-server/extensions/extensions.json
+[11:10:37] Getting Manifest... ms-azuretools.vscode-docker
+[11:10:37] Installing extension: ms-azuretools.vscode-docker {
+  isMachineScoped: false,
+  isApplicationScoped: false,
+  profileLocation: _r {
+    scheme: 'file',
+    authority: '',
+    path: '/home/log430/.vscode-server/extensions/extensions.json',
+    query: '',
+    fragment: '',
+    _formatted: 'file:///home/log430/.vscode-server/extensions/extensions.json',
+    _fsPath: '/home/log430/.vscode-server/extensions/extensions.json'
+  },
+  productVersion: { version: '1.100.2', date: '2025-05-14T21:47:40.416Z' }
+}
+[11:10:40] Extension signature verification result for ms-azuretools.vscode-docker: Success. Internal Code: 0. Executed: true. Duration: 1558ms.
+[11:10:40] Extracted extension to file:///home/log430/.vscode-server/extensions/ms-azuretools.vscode-docker-1.29.6: ms-azuretools.vscode-docker
+[11:10:40] Renamed to /home/log430/.vscode-server/extensions/ms-azuretools.vscode-docker-1.29.6
+[11:10:40] Extension installed successfully: ms-azuretools.vscode-docker file:///home/log430/.vscode-server/extensions/extensions.json
+[11:10:46] Getting Manifest... ms-azuretools.vscode-containers
+[11:10:46] Installing extension: ms-azuretools.vscode-containers {
+  context: {
+    extensionInstallSource: 'command',
+    clientTargetPlatform: 'win32-x64'
+  },
+  isMachineScoped: false,
+  pinned: false,
+  donotVerifySignature: false,
+  isApplicationScoped: false,
+  profileLocation: _r {
+    scheme: 'file',
+    authority: '',
+    path: '/home/log430/.vscode-server/extensions/extensions.json',
+    query: '',
+    fragment: '',
+    _formatted: 'file:///home/log430/.vscode-server/extensions/extensions.json',
+    _fsPath: '/home/log430/.vscode-server/extensions/extensions.json'
+  },
+  productVersion: { version: '1.100.2', date: '2025-05-14T21:47:40.416Z' }
+}
+[11:10:48] Extension signature verification result for ms-azuretools.vscode-containers: Success. Internal Code: 0. Executed: true. Duration: 1533ms.
+[11:10:48] Extracted extension to file:///home/log430/.vscode-server/extensions/ms-azuretools.vscode-containers-2.0.1: ms-azuretools.vscode-containers
+[11:10:48] Renamed to /home/log430/.vscode-server/extensions/ms-azuretools.vscode-containers-2.0.1
+[11:10:48] Extension installed successfully: ms-azuretools.vscode-containers file:///home/log430/.vscode-server/extensions/extensions.json
+[11:10:49] Uninstalling extension from the profile: ms-azuretools.vscode-docker@1.29.6 file:///home/log430/.vscode-server/extensions/extensions.json
+[11:10:49] Marked extension as removed ms-azuretools.vscode-docker-1.29.6
+[11:10:49] Successfully uninstalled extension from the profile ms-azuretools.vscode-docker@1.29.6 file:///home/log430/.vscode-server/extensions/extensions.json
+[11:10:49] [<unknown>][78ad4758][ManagementConnection] The client has disconnected gracefully, so the connection will be disposed.
+[11:10:50] [<unknown>][541d373f][ExtensionHostConnection] <72921> Extension Host Process exited with code: 0, signal: null.
+Cancelling previous shutdown timeout
+[11:10:50] Cancelling previous shutdown timeout
+Last EH closed, waiting before shutting down
+[11:10:50] Last EH closed, waiting before shutting down
+[11:10:56] [<unknown>][cd149c84][ExtensionHostConnection] New connection established.
+[11:10:56] [<unknown>][cd149c84][ExtensionHostConnection] <76466> Launched Extension Host Process.
+[11:10:56] [<unknown>][e2d4226d][ManagementConnection] New connection established.

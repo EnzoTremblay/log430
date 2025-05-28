@@ -35,5 +35,5 @@ BROWSER=/home/log430/.vscode-server/cli/servers/Stable-848b80aeb52026648a8ff9f7c
 PATH=/home/log430/.vscode-server/extensions/ms-python.python-2025.6.1-linux-x64/python_files/deactivate/bash:/home/log430/venv/bin:/home/log430/.vscode-server/extensions/ms-python.python-2025.6.1-linux-x64/python_files/deactivate/bash:/home/log430/venv/bin:/home/log430/.vscode-server/cli/servers/Stable-848b80aeb52026648a8ff9f7c45a9b0a80641e2e/server/bin/remote-cli:/home/log430/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
 TERM_PROGRAM=vscode
-VSCODE_IPC_HOOK_CLI=/run/user/1000/vscode-ipc-80f6096f-a398-4051-b395-e82a874bf1ab.sock
+VSCODE_IPC_HOOK_CLI=/run/user/1000/vscode-ipc-a60935fb-849a-4eda-a6f8-cf8998443e96.sock
 _=/bin/python3
