@@ -5,155 +5,29 @@
 * the Visual Studio Code Server License Terms (https://aka.ms/vscode-server-license) and
 * the Microsoft Privacy Statement (https://privacy.microsoft.com/en-US/privacystatement).
 *
-Server bound to /tmp/code-7187d4ea-547d-45db-8459-5e92f1be2c08
-Extension host agent listening on /tmp/code-7187d4ea-547d-45db-8459-5e92f1be2c08
+Server bound to /tmp/code-b8dbfc59-0ad2-4838-a110-be15f61a1c2d
+Extension host agent listening on /tmp/code-b8dbfc59-0ad2-4838-a110-be15f61a1c2d
 
-[11:19:07] 
-
-
+[11:08:30] 
 
 
-[11:19:07] Extension host agent started.
-[11:19:07] Started initializing default profile extensions in extensions installation folder. file:///home/log430/.vscode-server/extensions
-[11:19:07] ComputeTargetPlatform: linux-x64
-[11:19:07] [<unknown>][a62e95d9][ManagementConnection] New connection established.
-[11:19:07] [<unknown>][7689d5f3][ExtensionHostConnection] New connection established.
-[11:19:08] Completed initializing default profile extensions in extensions installation folder. file:///home/log430/.vscode-server/extensions
-[11:19:08] [<unknown>][7689d5f3][ExtensionHostConnection] <38910> Launched Extension Host Process.
-[11:19:09] ComputeTargetPlatform: linux-x64
-[11:19:09] Getting Manifest... github.copilot-chat
-[11:19:09] Getting Manifest... github.copilot
-[11:19:09] Installing extension: github.copilot {
-  installPreReleaseVersion: false,
-  donotIncludePackAndDependencies: true,
-  donotVerifySignature: false,
-  context: { clientTargetPlatform: 'win32-x64' },
-  isApplicationScoped: false,
-  profileLocation: _r {
-    scheme: 'file',
-    authority: '',
-    path: '/home/log430/.vscode-server/extensions/extensions.json',
-    query: '',
-    fragment: '',
-    _formatted: 'file:///home/log430/.vscode-server/extensions/extensions.json',
-    _fsPath: '/home/log430/.vscode-server/extensions/extensions.json'
-  },
-  productVersion: { version: '1.100.2', date: '2025-05-14T21:47:40.416Z' }
-}
-[11:19:09] Installing the extension without checking dependencies and pack github.copilot
-[11:19:09] Installing extension: github.copilot-chat {
-  installPreReleaseVersion: false,
-  donotIncludePackAndDependencies: true,
-  donotVerifySignature: false,
-  context: { clientTargetPlatform: 'win32-x64' },
-  isApplicationScoped: false,
-  profileLocation: _r {
-    scheme: 'file',
-    authority: '',
-    path: '/home/log430/.vscode-server/extensions/extensions.json',
-    query: '',
-    fragment: '',
-    _formatted: 'file:///home/log430/.vscode-server/extensions/extensions.json',
-    _fsPath: '/home/log430/.vscode-server/extensions/extensions.json'
-  },
-  productVersion: { version: '1.100.2', date: '2025-05-14T21:47:40.416Z' }
-}
-[11:19:09] Installing the extension without checking dependencies and pack github.copilot-chat
-[11:19:12] Extension signature verification result for github.copilot-chat: Success. Internal Code: 0. Executed: true. Duration: 2153ms.
-[11:19:12] Extension signature verification result for github.copilot: Success. Internal Code: 0. Executed: true. Duration: 2206ms.
-[11:19:13] Extracted extension to file:///home/log430/.vscode-server/extensions/github.copilot-chat-0.27.1: github.copilot-chat
-[11:19:13] Renamed to /home/log430/.vscode-server/extensions/github.copilot-chat-0.27.1
-[11:19:13] Extension installed successfully: github.copilot-chat file:///home/log430/.vscode-server/extensions/extensions.json
-[11:19:14] Extracted extension to file:///home/log430/.vscode-server/extensions/github.copilot-1.322.0: github.copilot
-[11:19:14] Renamed to /home/log430/.vscode-server/extensions/github.copilot-1.322.0
-[11:19:14] Extension installed successfully: github.copilot file:///home/log430/.vscode-server/extensions/extensions.json
-[11:19:37] [<unknown>][a62e95d9][ManagementConnection] The client has disconnected gracefully, so the connection will be disposed.
-[11:19:37] [<unknown>][7689d5f3][ExtensionHostConnection] <38910> Extension Host Process exited with code: 0, signal: null.
-Cancelling previous shutdown timeout
-[11:19:37] Cancelling previous shutdown timeout
-Last EH closed, waiting before shutting down
-[11:19:37] Last EH closed, waiting before shutting down
-[11:19:47] [<unknown>][08397509][ExtensionHostConnection] New connection established.
-[11:19:47] [<unknown>][08397509][ExtensionHostConnection] <39084> Launched Extension Host Process.
-[11:19:47] [<unknown>][54bf74f2][ManagementConnection] New connection established.
-[11:20:06] [<unknown>][54bf74f2][ManagementConnection] The client has disconnected gracefully, so the connection will be disposed.
-[11:20:06] [<unknown>][08397509][ExtensionHostConnection] <39084> Extension Host Process exited with code: 0, signal: null.
-Cancelling previous shutdown timeout
-[11:20:06] Cancelling previous shutdown timeout
-Last EH closed, waiting before shutting down
-[11:20:06] Last EH closed, waiting before shutting down
-[11:20:12] [<unknown>][13b0eb56][ManagementConnection] New connection established.
-[11:20:12] [<unknown>][f3a9f5cc][ExtensionHostConnection] New connection established.
-[11:20:12] [<unknown>][f3a9f5cc][ExtensionHostConnection] <39262> Launched Extension Host Process.
-[11:20:26] Getting Manifest... mhutchie.git-graph
-[11:20:26] Installing extension: mhutchie.git-graph {
-  installPreReleaseVersion: false,
-  donotVerifySignature: false,
-  context: { clientTargetPlatform: 'win32-x64' },
-  isApplicationScoped: false,
-  profileLocation: _r {
-    scheme: 'file',
-    authority: '',
-    path: '/home/log430/.vscode-server/extensions/extensions.json',
-    query: '',
-    fragment: '',
-    _formatted: 'file:///home/log430/.vscode-server/extensions/extensions.json',
-    _fsPath: '/home/log430/.vscode-server/extensions/extensions.json'
-  },
-  productVersion: { version: '1.100.2', date: '2025-05-14T21:47:40.416Z' }
-}
-[11:20:28] Extension signature verification result for mhutchie.git-graph: Success. Internal Code: 0. Executed: true. Duration: 1635ms.
-[11:20:28] Extracted extension to file:///home/log430/.vscode-server/extensions/mhutchie.git-graph-1.30.0: mhutchie.git-graph
-[11:20:28] Renamed to /home/log430/.vscode-server/extensions/mhutchie.git-graph-1.30.0
-[11:20:28] Extension installed successfully: mhutchie.git-graph file:///home/log430/.vscode-server/extensions/extensions.json
-[11:20:47] Getting Manifest... ms-python.python
-[11:20:47] Installing extension: ms-python.python {
-  installPreReleaseVersion: false,
-  donotVerifySignature: false,
-  context: { clientTargetPlatform: 'win32-x64' },
-  isApplicationScoped: false,
-  profileLocation: _r {
-    scheme: 'file',
-    authority: '',
-    path: '/home/log430/.vscode-server/extensions/extensions.json',
-    query: '',
-    fragment: '',
-    _formatted: 'file:///home/log430/.vscode-server/extensions/extensions.json',
-    _fsPath: '/home/log430/.vscode-server/extensions/extensions.json'
-  },
-  productVersion: { version: '1.100.2', date: '2025-05-14T21:47:40.416Z' }
-}
-[11:20:47] Getting Manifest... ms-python.vscode-pylance
-[11:20:47] Getting Manifest... ms-python.debugpy
-[11:20:47] Installing extension: ms-python.vscode-pylance {
-  installPreReleaseVersion: false,
-  donotVerifySignature: false,
-  context: {
-    clientTargetPlatform: 'win32-x64',
-    dependecyOrPackExtensionInstall: true
-  },
-  isApplicationScoped: false,
-  profileLocation: _r {
-    scheme: 'file',
-    authority: '',
-    path: '/home/log430/.vscode-server/extensions/extensions.json',
-    query: '',
-    fragment: '',
-    _formatted: 'file:///home/log430/.vscode-server/extensions/extensions.json',
-    _fsPath: '/home/log430/.vscode-server/extensions/extensions.json'
-  },
+
+
+[11:08:31] Extension host agent started.
+[11:08:31] [<unknown>][78ad4758][ManagementConnection] New connection established.
+[11:08:31] [<unknown>][541d373f][ExtensionHostConnection] New connection established.
+[11:08:31] [<unknown>][541d373f][ExtensionHostConnection] <72921> Launched Extension Host Process.
+[11:08:31] ComputeTargetPlatform: linux-x64
+[11:08:33] ComputeTargetPlatform: linux-x64
+[11:08:34] Getting Manifest... github.copilot
+[11:08:34] Getting Manifest... github.copilot-chat
+[11:08:35] Installing extension: github.copilot-chat {
   productVersion: { version: '1.100.2', date: '2025-05-14T21:47:40.416Z' },
   pinned: false,
-  installGivenVersion: false
-}
-[11:20:47] Installing extension: ms-python.debugpy {
-  installPreReleaseVersion: false,
-  donotVerifySignature: false,
-  context: {
-    clientTargetPlatform: 'win32-x64',
-    dependecyOrPackExtensionInstall: true
-  },
+  operation: 3,
   isApplicationScoped: false,
+  donotVerifySignature: false,
+  context: { clientTargetPlatform: 'win32-x64' },
   profileLocation: _r {
     scheme: 'file',
     authority: '',
@@ -162,20 +36,34 @@ Last EH closed, waiting before shutting down
     fragment: '',
     _formatted: 'file:///home/log430/.vscode-server/extensions/extensions.json',
     _fsPath: '/home/log430/.vscode-server/extensions/extensions.json'
-  },
+  }
+}
+[11:08:35] Installing extension: github.copilot {
   productVersion: { version: '1.100.2', date: '2025-05-14T21:47:40.416Z' },
   pinned: false,
-  installGivenVersion: false
+  operation: 3,
+  isApplicationScoped: false,
+  donotVerifySignature: false,
+  context: { clientTargetPlatform: 'win32-x64' },
+  profileLocation: _r {
+    scheme: 'file',
+    authority: '',
+    path: '/home/log430/.vscode-server/extensions/extensions.json',
+    query: '',
+    fragment: '',
+    _formatted: 'file:///home/log430/.vscode-server/extensions/extensions.json',
+    _fsPath: '/home/log430/.vscode-server/extensions/extensions.json'
+  }
 }
-[11:20:51] Extension signature verification result for ms-python.debugpy: Success. Internal Code: 0. Executed: true. Duration: 2883ms.
-[11:20:51] Extension signature verification result for ms-python.python: Success. Internal Code: 0. Executed: true. Duration: 2993ms.
-[11:20:52] Extension signature verification result for ms-python.vscode-pylance: Success. Internal Code: 0. Executed: true. Duration: 2986ms.
-[11:20:54] Extracted extension to file:///home/log430/.vscode-server/extensions/ms-python.debugpy-2025.8.0-linux-x64: ms-python.debugpy
-[11:20:54] Renamed to /home/log430/.vscode-server/extensions/ms-python.debugpy-2025.8.0-linux-x64
-[11:20:57] Extracted extension to file:///home/log430/.vscode-server/extensions/ms-python.python-2025.6.1-linux-x64: ms-python.python
-[11:20:57] Renamed to /home/log430/.vscode-server/extensions/ms-python.python-2025.6.1-linux-x64
-[11:21:04] Extracted extension to file:///home/log430/.vscode-server/extensions/ms-python.vscode-pylance-2025.5.1: ms-python.vscode-pylance
-[11:21:05] Renamed to /home/log430/.vscode-server/extensions/ms-python.vscode-pylance-2025.5.1
-[11:21:05] Extension installed successfully: ms-python.debugpy file:///home/log430/.vscode-server/extensions/extensions.json
-[11:21:05] Extension installed successfully: ms-python.python file:///home/log430/.vscode-server/extensions/extensions.json
-[11:21:05] Extension installed successfully: ms-python.vscode-pylance file:///home/log430/.vscode-server/extensions/extensions.json
+[11:08:35] Getting Manifest... github.copilot
+[11:08:35] Getting Manifest... github.copilot-chat
+[11:08:40] Extension signature verification result for github.copilot: Success. Internal Code: 0. Executed: true. Duration: 3203ms.
+[11:08:40] Extension signature verification result for github.copilot-chat: Success. Internal Code: 0. Executed: true. Duration: 4247ms.
+[11:08:42] Extracted extension to file:///home/log430/.vscode-server/extensions/github.copilot-chat-0.27.2: github.copilot-chat
+[11:08:42] Renamed to /home/log430/.vscode-server/extensions/github.copilot-chat-0.27.2
+[11:08:42] Marked extension as removed github.copilot-chat-0.27.1
+[11:08:42] Extension installed successfully: github.copilot-chat file:///home/log430/.vscode-server/extensions/extensions.json
+[11:08:42] Extracted extension to file:///home/log430/.vscode-server/extensions/github.copilot-1.323.0: github.copilot
+[11:08:42] Renamed to /home/log430/.vscode-server/extensions/github.copilot-1.323.0
+[11:08:42] Marked extension as removed github.copilot-1.322.0
+[11:08:42] Extension installed successfully: github.copilot file:///home/log430/.vscode-server/extensions/extensions.json
