@@ -1,0 +1,37 @@
+{
+  "version": 3,
+  "name": "API Gateway",
+  "port": 8080,
+  "endpoints": [
+    {
+      "endpoint": "/api/v1/products",
+      "method": "GET",
+      "backend": [{"url_pattern": "/api/v1/products", "host": ["http://produits:5001"]}]
+    },
+    {
+      "endpoint": "/api/v1/sales",
+      "method": "GET",
+      "backend": [{"url_pattern": "/api/v1/sales", "host": ["http://ventes:5002"]}]
+    },
+    {
+      "endpoint": "/api/v1/stock",
+      "method": "GET",
+      "backend": [{"url_pattern": "/api/v1/stock", "host": ["http://stock:5003"]}]
+    },
+    {
+      "endpoint": "/api/v1/clients",
+      "method": "POST",
+      "backend": [{"url_pattern": "/api/v1/clients", "host": ["http://clients:5004"]}]
+    },
+    {
+      "endpoint": "/api/v1/cart",
+      "method": "POST",
+      "backend": [{"url_pattern": "/api/v1/cart", "host": ["http://panier:5005"]}]
+    },
+    {
+      "endpoint": "/api/v1/checkout",
+      "method": "POST",
+      "backend": [{"url_pattern": "/api/v1/checkout", "host": ["http://commande:5006"]}]
+    }
+  ]
+}
