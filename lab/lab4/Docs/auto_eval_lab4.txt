@@ -1,0 +1,17 @@
+# Grille d’auto-évaluation – Labo 4
+
+| Critère                                 | Réalisé | À compléter |
+|-----------------------------------------|---------|------------|
+| Cache opérationnel                      |   X     |            |
+| Load balancing (NGINX)                  |   X     |            |
+| Monitoring (Prometheus, Grafana)        |   X     |            |
+| Tests de charge (k6/JMeter)             |   X     |            |
+| Documentation technique                 |   X     |            |
+| README et rapport                       |   X     |            |
+| Screenshots et résultats                |   X     |            |
+| Monitoring avancé/alertes               |         |     X      |
+| Documentation des métriques             |         |     X      |
+
+Commentaires :
+- Les fonctionnalités principales sont en place et testées.
+- Quelques axes d’amélioration pour la version finale (alertes, monitoring avancé).

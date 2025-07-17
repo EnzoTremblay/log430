@@ -335,103 +335,69 @@ API
 
 Autoévaluation à compléter par l’étudiant(e)
 Date :
-Nom et prénom :
+Nom et prénom : Simon Tremblay
 Pour chaque critère, cochez la case correspondant à votre niveau et ajoutez un court commentaire :
 Critère 1. Extension API RESTful (Labo 3)
-□ Excellent □ Suffisant □ Suffisant avec améliorations
-Commentaire :
-
-□ Insuffisant
+□ Excellent
+Commentaire : API complète, stateless, routes cohérentes, logique métier isolée, tests fonctionnels et documentation exhaustive.
 
 Critère 2. Documentation Swagger/OpenAPI (Labo 3)
-□ Excellent □ Suffisant □ Suffisant avec améliorations
-Commentaire :
-
-□ Insuffisant
+□ Excellent
+Commentaire : Spécification OpenAPI exhaustive, UI Swagger intégrée, exemples d’appels et versionnage clair.
 
 Critère 3. Sécurité et CORS (Labo 3)
-□ Excellent □ Suffisant □ Suffisant avec améliorations
-Commentaire :
-
-□ Insuffisant
+□ Excellent
+Commentaire : CORS configuré pour toutes origines, authentification basique, endpoints sensibles protégés.
 
 Critère 4. Tests & CI/CD (Labo 3)
-□ Excellent □ Suffisant
-Commentaire :
-
-□ Suffisant avec améliorations
-
-□ Insuffisant
+□ Excellent
+Commentaire : Tests automatisés (Pytest, Postman), pipeline CI/CD déclenché à chaque commit, couverture complète.
 
 Critère 5. Test de charge & observabilité initiale (Labo 4)
-□ Excellent □ Suffisant □ Suffisant avec améliorations
-Commentaire :
-
-□ Insuffisant
+□ Excellent
+Commentaire : Tests de charge k6, métriques Prometheus, dashboard Grafana complet (Golden Signals).
 
 Critère 6. Load balancing & résilience (Labo 4)
-□ Excellent □ Suffisant □ Suffisant avec améliorations
-Commentaire :
-
-□ Insuffisant
+□ Excellent
+Commentaire : NGINX configuré, tests de charge et tolérance aux pannes validés.
 
 Critère 7. Caching des endpoints (Labo 4)
-□ Excellent □ Suffisant □ Suffisant avec améliorations
-Commentaire :
-
-□ Insuffisant
+□ Excellent
+Commentaire : Cache LRU sur endpoints critiques, impact mesuré sur latence et charge serveur.
 
 Critère 8. Découpage microservices (Labo 5)
-□ Excellent □ Suffisant □ Suffisant avec améliorations
-Commentaire :
-
-□ Insuffisant
+□ Excellent
+Commentaire : Microservices opérationnels, responsabilités claires, communication via API Gateway.
 
 Critère 9. Organisation DDD (Labo 5)
-□ Excellent □ Suffisant □ Suffisant avec améliorations
-Commentaire :
-
-□ Insuffisant
+□ Suffisant
+Commentaire : Domaines identifiés, organisation DDD esquissée, à approfondir pour une version finale.
 
 Critère 10. Configuration de l’API Gateway (Labo 5)
-□ Excellent □ Suffisant □ Suffisant avec améliorations
-Commentaire :
-
-□ Insuffisant
+□ Excellent
+Commentaire : Gateway KrakenD configurée, routes dynamiques, CORS et logging opérationnels.
 
 Critère 11. Load balancing via Gateway (Labo 5)
-□ Excellent □ Suffisant □ Suffisant avec améliorations
-Commentaire :
-
-□ Insuffisant
+□ Suffisant
+Commentaire : Balancing présent via Gateway, tests réalisés, à approfondir pour analyse détaillée.
 
 Critère 12. Logging (Labo 5)
-□ Excellent □ Suffisant
-Commentaire :
-
-□ Insuffisant
-
-□ Suffisant avec améliorations
+□ Excellent
+Commentaire : Logging centralisé, niveaux configurés, traces distribuées, logs exploitables pour le monitoring.
 
 5
 
 Critère 13. Observabilité et comparatif (Labo 5)
-□ Excellent □ Suffisant □ Suffisant avec améliorations
-Commentaire :
-
-□ Insuffisant
+□ Excellent
+Commentaire : Dashboards Grafana à jour, comparatif d’architectures avec métriques et captures d’écran.
 
 Critère 14. Rapport d’analyse (Labo 5)
-□ Excellent □ Suffisant □ Suffisant avec améliorations
-Commentaire :
-
-□ Insuffisant
+□ Excellent
+Commentaire : Rapport détaillé des optimisations, résultats chiffrés, graphiques et recommandations.
 
 Critère 15. Documentation et API (Labo 5)
-□ Excellent □ Suffisant □ Suffisant avec améliorations
-Commentaire :
-
-□ Insuffisant
+□ Excellent
+Commentaire : Documentation technique complète, ADR, collection Postman et guide de déploiement.
 
 6
 

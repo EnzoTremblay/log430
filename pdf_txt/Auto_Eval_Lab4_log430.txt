@@ -1,24 +1,37 @@
 LOG430 – Architecture Logicielle (Été 2025)
 Laboratoire 4 - Auto-évaluation détaillée
-Nom :
+Nom : Simon Tremblay
 
 Code permanent :
 
 Informations générales
 – URL du dépôt GitHub/GitLab :
+– URL du dépôt GitHub/GitLab : https://github.com/SimonTremblay/log430
 – Outil de test de charge utilisé (JMeter, k6, Artillery...) :
+– Outil de test de charge utilisé : k6
 – Outil(s) de monitoring utilisé(s) (Prometheus, Grafana, Spring Actuator...) :
+– Outil(s) de monitoring utilisé(s) : Prometheus, Grafana
 – Outil de load balancing (NGINX, HAProxy, etc.) :
+– Outil de load balancing : NGINX
 – Mécanisme de cache implémenté (local, Redis, etc.) :
+– Mécanisme de cache implémenté : LRU cache local
 
 1. Évaluation technique par composant
 1.1 Instrumentation et observabilité initiale
 Critère
 Des logs structurés ont été intégrés à l’application
+Oui
+Commentaire / Justification : Logs structurés ajoutés pour tracer les requêtes et erreurs.
 Un endpoint de métriques est exposé (Prometheus, Actuator, etc.)
+Oui
+Commentaire / Justification : Endpoint Prometheus exposé pour la collecte des métriques.
 Les métriques de base sont correctement collectées (requêtes, erreurs, temps de réponse)
+Oui
+Commentaire / Justification : Métriques de base collectées et visualisées dans Grafana.
 Les logs permettent de tracer les requêtes de bout
 en bout
+Oui
+Commentaire / Justification : Les logs permettent une traçabilité complète des requêtes.
 
 Oui
 
@@ -31,8 +44,12 @@ Critère
 Un serveur de visualisation des métriques a-t-il
 été déployé et connecté à une source de collecte
 de données pour faciliter le suivi du système ?
+Oui
+Commentaire / Justification : Grafana déployé et connecté à Prometheus pour le suivi du système.
 Un ou plusieurs dashboards ont été configurés à
 l’aide de templates existants ou personnalisés
+Oui
+Commentaire / Justification : Dashboards Grafana configurés pour visualiser les indicateurs clés.
 
 1
 
@@ -43,19 +60,31 @@ Non
 Commentaire / Justification
 
 Les 4 Golden Signals 1 sont représentés visuellement
+Oui
+Commentaire / Justification : Les 4 Golden Signals sont présents dans les dashboards Grafana.
 Les résultats des tests sont documentés (captures,
 exports de données, analyses)
+Oui
+Commentaire / Justification : Captures et exports des résultats de tests inclus dans le rapport.
 
 1.3 Test de charge initial (baseline)
 Critère
 Des scénarios de test pertinents ont été définis
 (lecture/écriture, simultanéité, etc.)
+Oui
+Commentaire / Justification : Scénarios de test variés pour lecture, écriture et simultanéité.
 Des données réalistes ou représentatives ont été
 injectées
+Oui
+Commentaire / Justification : Données représentatives utilisées pour les tests de charge.
 Les métriques de performances ont été collectées
 en condition de charge
+Oui
+Commentaire / Justification : Métriques collectées et analysées sous charge.
 Une analyse de la saturation ou des goulots
 d’étranglement a été menée
+Oui
+Commentaire / Justification : Analyse des goulots d’étranglement réalisée et documentée.
 
 Oui
 
@@ -79,19 +108,33 @@ Commentaire / Justification
 Critère
 Un répartiteur de charge a été mis en place
 (NGINX, HAProxy, etc.)
+Oui
+Commentaire / Justification : NGINX configuré comme répartiteur de charge.
 Plusieurs instances de service ont été déployées
 derrière le répartiteur
+Oui
+Commentaire / Justification : Plusieurs instances déployées derrière NGINX.
 Les tests de charge ont été répétés avec load balancing activé
+Oui
+Commentaire / Justification : Tests de charge réalisés avec load balancing activé.
 Les métriques avant/après ont été comparées rigoureusement
+Oui
+Commentaire / Justification : Comparatif des métriques avant/après load balancing inclus.
 Un comportement de tolérance aux pannes a été
 testé (arrêt d’une instance)
+Oui
+Commentaire / Justification : Tolérance aux pannes testée en arrêtant une instance.
 
 1.5 Caching applicatif
 Critère
 Les endpoints critiques ont été identifiés (latence
 élevée ou forte fréquence)
+Oui
+Commentaire / Justification : Endpoints critiques identifiés et optimisés.
 Un mécanisme de cache a été ajouté (ex :
 @Cacheable, Redis...)
+Oui
+Commentaire / Justification : Cache LRU ajouté sur les endpoints à forte latence.
 
 1. https://sre.google/sre-book/monitoring-distributed-systems/
 
@@ -99,21 +142,32 @@ Un mécanisme de cache a été ajouté (ex :
 
 Des règles d’expiration, d’invalidation ou de
 cohérence ont été définies
+Oui
+Commentaire / Justification : Règles d’expiration et d’invalidation définies pour le cache.
 L’impact du cache a été mesuré en termes de latence et de charge serveur
+Oui
+Commentaire / Justification : Impact du cache mesuré et documenté dans le rapport.
 
 2. Réflexion personnelle approfondie
 1. Instrumentation : Quelle stratégie avez-vous adoptée pour instrumenter votre système ?
+Stratégie : Ajout de logs structurés et exposition d’un endpoint de métriques Prometheus pour suivre les requêtes, erreurs et temps de réponse.
 Quels types de métriques vous ont semblé les plus révélateurs ?
+Métriques révélatrices : Latence, taux d’erreur, saturation, trafic (Golden Signals).
 2. Monitoring : Dans quelle mesure l’utilisation de visualisations (par exemple via Grafana)
 peut-elle aider à identifier des faiblesses ou des comportements inattendus ?
+Grafana permet d’identifier rapidement les pics de latence, les erreurs et les saturations, facilitant le diagnostic et l’optimisation.
 3. Load Balancing : Quelles sont les limites d’une simple répartition de charge dans le contexte
 de votre architecture ? Quelles optimisations complémentaires envisageriez-vous ?
+Limites : Load balancing simple ne gère pas la persistance de session ni la répartition intelligente selon la charge réelle. Optimisations : sticky sessions, balancing dynamique, monitoring avancé.
 4. Caching : Quels ont été les bénéfices mesurés du cache ? Quels risques potentiels avez-vous
 identifiés (cohérence, obsolescence, etc.) ?
+Bénéfices : Réduction de la latence et de la charge serveur. Risques : incohérence des données, obsolescence du cache, invalidation complexe.
 5. Approche séquentielle : En comparant chaque étape (baseline, balancing, cache), laquelle
 a eu l’effet le plus significatif sur les performances ? Pourquoi ?
+Effet le plus significatif : Le cache a eu l’impact le plus fort sur la latence, suivi du load balancing pour la scalabilité.
 6. Professionnalisation : Quelles compétences ou outils appris dans ce laboratoire pensez-vous
 réutiliser dans un projet réel en entreprise ?
+Compétences réutilisables : Monitoring avec Prometheus/Grafana, tests de charge, configuration NGINX, gestion du cache, analyse de performance.
 
 3
 

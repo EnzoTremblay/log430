@@ -1,0 +1,18 @@
+# Grille d’auto-évaluation – Labo 5
+
+| Critère                                 | Réalisé | À compléter |
+|-----------------------------------------|---------|------------|
+| Microservices opérationnels             |   X     |            |
+| API Gateway (KrakenD)                   |   X     |            |
+| Orchestration multi-conteneurs          |   X     |            |
+| Monitoring et observabilité             |   X     |            |
+| Documentation technique                 |   X     |            |
+| README et rapport                       |   X     |            |
+| Diagrammes UML                          |   X     |            |
+| Gestion avancée des erreurs             |         |     X      |
+| Tests de charge multi-services          |         |     X      |
+| Documentation API Gateway               |         |     X      |
+
+Commentaires :
+- Les livrables principaux sont réalisés et poussés.
+- Quelques axes d’amélioration pour la version finale (erreurs inter-services, tests de charge, documentation Gateway).

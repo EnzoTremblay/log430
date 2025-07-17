@@ -1,0 +1,20 @@
+# Grille d’auto-évaluation – Labo 3
+
+| Critère                                 | Réalisé | À compléter |
+|-----------------------------------------|---------|------------|
+| Couche API RESTful fonctionnelle        |   X     |            |
+| Documentation Swagger complète          |   X     |            |
+| Sécurité (CORS, Auth)                   |   X     |            |
+| Tests automatisés et Postman            |   X     |            |
+| Intégration CI/CD                       |   X     |            |
+| Cas d’usage métier                      |   X     |            |
+| Gestion des erreurs et statuts HTTP     |   X     |            |
+| Pagination, filtrage, tri               |   X     |            |
+| README et rapport technique             |   X     |            |
+| Enrichissement des cas d’usage          |         |     X      |
+| Tests de charge                         |         |     X      |
+| Gestion avancée des erreurs             |         |     X      |
+
+Commentaires :
+- Tous les livrables principaux sont réalisés et poussés.
+- Quelques axes d’amélioration possibles pour la version finale.
