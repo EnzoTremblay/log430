@@ -1,0 +1,173 @@
+Rapport – Laboratoire 1
+Nom : S imo n Tr em b lay Code permanent : TRES 0 1 1 1 9 9 0 8
+Cours : LOG430 – Architecture Logicielle
+Session Été 2025
+
+1. Informations gé né ral e s
+– URL du d ´e p ô t GitHub/GitLab : https://github.com/EnzoTremblay/log430
+– Langage utilisé : python
+– Base de données utilisée : SQL lite
+– ORM ut ilisé : SQLAlchemy ORM
+
+2. Auto-évaluation par section
+2.1 Structuration du dé pôt
+É lément s
+Le fichier README.md est présent et complet
+Un fichier .gitignore pertinent est utilisé
+Le dé p ô t présente une structure claire et logique
+
+Oui
+
+Non
+
+Commentaire / Justification
+
+Oui
+
+Non
+
+Commentaire / Justification
+
+x
+x
+x
+
+2.2 Application client
+É lément s
+
+Elle permet de rechercher, ajouter, consulter, retourner x
+des produits
+x
+L’interface est claire et fonctionnelle
+
+1
+
+2.3 Persistance et ORM
+É lément s
+
+Oui
+
+Un ORM est utilisé pour gérer la persistance
+L’application accède correctement à la base de donné e s
+Les opérations de lecture et d’écriture sont persistées
+La base de données est cohére nte après plusieurs
+opérations concurrentes
+L’utilisation des indexes dans la base de données est bien
+appliqué et justifié
+
+Non
+
+Commentaire / Justification
+
+Non
+
+Commentaire / Justification
+
+Non
+
+Commentaire / Justification
+
+x
+x
+x
+
+x
+x
+
+2.4 Justifications et documentation
+É lément s
+
+Oui
+
+Au moins deux décisions architecturales (ADR) sont
+rédigées
+Les choix technologiques sont docume nté s
+Les diagrammes UML sont présents (classes, séquence,
+déploiem ent)
+Les diagrammes sont faits avec un outil de diagramme
+comme code (diagram as code), tel que PlantUML ou
+Mermaid
+La documentation est écri te en Markdown
+La documentation suit un gabarit comme Arc42
+La documentation est organisée dans un répertoire dé d ié
+comme “docs” dans le répertoi re du système
+
+x
+x
+
+x
+x
+
+x
+x
+
+x
+
+2.6 Conteneurisation et exécution
+É lément s
+
+Oui
+
+L’application est conteneuri sée avec un Dockerfile
+Cliente est conteneurisé
+La base de donée s instanciée manuellement
+La base de donée s instanciée avec système d’orchestration (ex. Docker compose)
+Les instructions d’exécution sont présente s dans le
+README
+
+2
+
+x
+x
+x
+
+x
+x
+
+2.7 Intégration continue (CI/CD)
+É lément s
+
+Oui
+
+Non
+
+Commentaire / Justification
+
+Une pipeline CI/CD est configurée sur GitHub Actions x
+ou GitLab CI
+x
+Le lint est fonctionnelle
+x
+L’étape test unitaire est fonctionnelle
+x
+L ’étape build Docker est fonctionnelle
+x
+L’image est publiée sur Docker Hub
+
+3. Réflexion personnelle
+1. **Limites du style d’architecture client/serveur à 2 couches (2-tier)** :
+- Difficulté à évoluer vers des architectures distribuées.
+- Risque de surcharge du serveur en cas de forte demande.
+2. **Limites du mécanisme de base de données utilisée** :
+- SQLite est limité en termes de concurrence et de scalabilité.
+- Tactiques pour améliorer la capacité de réponse :
+- Utilisation de caches.
+- Optimisation des requêtes.
+- Migration vers une base de données plus robuste comme PostgreSQL.
+3. **Efforts techniques et risques liés à la migration vers une base NoSQL** :
+- Efforts :
+- Réécriture des requêtes.
+- Adaptation des modèles de données.
+- Risques :
+- Perte de cohérence transactionnelle.
+- Complexité accrue pour les relations complexes.
+4. **Éléments posant le plus de difficulté** :
+- Configuration de la pipeline CI/CD.
+- Gestion des secrets dans le dépôt.
+5. **Améliorations pour les prochains laboratoires** :
+- Automatisation accrue des tests.
+- Documentation plus détaillée des choix technologiques.
+
+3
+
+

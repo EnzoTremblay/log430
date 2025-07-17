@@ -1,0 +1,170 @@
+Rapport – Laboratoire 0
+Nom : S imo n Tr emb lay
+Code permanent : TRES 0 1 1 1 9 9 0 8
+Cours : LOG430 – Architecture Logicielle
+Session Été 2025
+
+1. Informations gé né ral e s
+– Nom : S i m on T r e m b l a y
+– URL du d ´e p ô t GitHub/GitLab : https://github.com/EnzoTremblay/log430
+
+2. Auto-évaluation par section
+2.1 Structuration du dé pôt
+É lément s
+Le fichier README.md est présent et complet
+Un fichier .gitignore pertinent est utilisé
+Le dé p ô t présente une structure claire et logique
+
+Oui
+
+Non
+
+Commentaire / Justification
+
+Oui
+
+Non
+
+Commentaire / Justification
+
+x
+x
+x
+
+2.2 Application minimale
+É lément s
+
+x
+L’application fonctionne localement
+L’application affiche un message ou répond sur un port x
+web
+
+2.3 Tests unitaires
+
+1
+
+É lément s
+Au moins deux tests unitaires sont présents
+Les tests passent avec succès
+Le framework de test est bien choisi et confi guré
+
+Oui
+
+Non
+
+Commentaire / Justification
+
+Oui
+
+Non
+
+Commentaire / Justification
+
+Oui
+
+Non
+
+Commentaire / Justification
+
+Non
+
+Commentaire / Justification
+
+Non
+
+Commentaire / Justification
+
+x
+x
+x
+
+2.4 Conteneurisation
+É lément s
+L’application est conteneuri sée avec un Dockerfile
+L’image Docker fonctionne localement
+Un fichier .dockerignore est présent (si pertinent)
+
+x
+x
+x
+
+2.5 Orchestration avec Docker Compose
+É lément s
+Un fichier docker-compose.yml permet de lancer l’ap- x
+plication
+x
+Les instructions sont claires pour lancer l’application
+
+2.6 Intégration continue (CI/CD)
+É lément s
+
+Oui
+
+Une pipeline CI/CD est configurée sur GitHub Actions
+ou GitLab CI
+L ’é́tape lint fonctionne correctement
+L’étape test unitaire fonctionne correctement
+L ’étape build Docker fonctionne correctement
+L’image est automatiquement poussée sur Docker Hub
+Une preuve d’exécuti on réussi e de la pipeline est incluse
+
+x
+x
+x
+x
+x
+x
+
+2.7 Documentation
+É lément s
+
+Oui
+
+2
+
+Le README.md décri t le projet, les instructions de build x
+et d’exécution
+x
+Le fonctionnement de la CI/CD y est expl i qué
+x
+Les choix techniques sont justifiés
+
+3. Réflexion personnelle
+1. Qu’avez-vous appris dans ce laboratoire ?
+•
+•
+•
+
+J'ai appris à configurer un environnement de développement structuré en utilisant des outils
+modernes comme Docker, Docker Compose, et GitHub Actions.
+J'ai découvert comment conteneuriser une application Python, écrire des tests unitaires avec
+.pytest, et automatiser les processus de CI/CD.
+J'ai également appris à structurer un projet avec un dépôt Git bien organiser et documenté.
+
+2. Quels éléments vous ont p osé le plus de difficulté ?
+•
+•
+•
+
+La configuration initiale de Docker et des permissions pour l'utilisateur.
+La mise en place de la pipeline CI/CD avec GitHub Actions, notamment la gestion des secrets
+pour Docker Hub.
+La vérification que tous les composants (tests, conteneurisation, orchestration) fonctionnent
+ensemble sans problème.
+
+3. Que souhaitez-vous améliorer pour les prochains laboratoires ?
+•
+•
+
+Mieux documenter chaque étape du processus pour éviter des erreurs ou des oublis.
+Automatiser davantage les tests locaux avant de pousser sur GitHub.
+• Explorer des outils supplémentaires pour améliorer l'efficacité, comme des linters ou des outils
+d'analyse statique.
+• Travailler sur des applications plus complexes pour mieux comprendre les concepts avancés
+d'architecture logicielle.
+
+Ce travail a été réaliser avec l’aide de Copilot.
+
+3
+
+

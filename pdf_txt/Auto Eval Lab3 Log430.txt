@@ -1,0 +1,116 @@
+Auto-évaluation – Laboratoire 3
+Nom :
+
+Code permanent :
+Cours : LOG430 – Architecture Logicielle
+Session Été 2025
+
+Informations générales
+– URL du dépôt GitHub/GitLab :
+– Langage utilisé :
+– Framework utilisé :
+– Outils de tests :
+
+1. Autoévaluation par section
+1.1 Structuration et REST API
+Éléments
+
+Oui
+
+Les routes REST sont bien définies et respectent les conventions REST
+L’architecture suit un modèle MVC ou hexagonal (ou une autre architecture qui sera justifier)
+Les URIs sont bien structurées (ex :
+/api/v1/resource)
+La couche API est clairement séparée de la
+logique métier
+
+1.2 Documentation des API
+
+1
+
+Non
+
+Commentaire / Justification
+
+Éléments
+
+Oui
+
+Non
+
+Commentaire / Justification
+
+Oui
+
+Non
+
+Commentaire / Justification
+
+Oui
+
+Non
+
+Commentaire / Justification
+
+Oui
+
+Non
+
+Commentaire / Justification
+
+La documentation Swagger (OpenAPI) est
+présente
+Les méthodes, statuts, entrées/sorties sont
+décrites
+Swagger UI ou Redoc est intégré
+Des exemples de requêtes/réponses sont fournis
+
+1.3 Sécurité et accessibilité
+Éléments
+CORS est configuré correctement
+Une authentification est implémentée (token
+statique, Basic Auth, JWT)
+Les endpoints sensibles sont protégés
+
+1.4 Tests et validation
+Éléments
+Une collection Postman ou équivalente est
+fournie
+Des tests automatisés (JUnit, MockMVC,
+etc.) sont présents
+Les tests sont intégrés à la CI/CD
+
+1.5 Déploiement et exécution
+Éléments
+L’API est conteneurisée avec Docker
+Les instructions d’exécution sont claires dans
+le README.md
+L’API est fonctionnelle en local ou via conteneur
+
+2
+
+1.6 Bonnes pratiques REST
+Éléments
+
+Oui
+
+Non
+
+Commentaire / Justification
+
+Respect des verbes HTTP (GET, POST,
+PUT, DELETE, PATCH)
+Utilisation de codes HTTP standard (200, 201,
+400, etc.)
+Pagination, tri et filtrage implémentés si pertinent
+Messages d’erreur structurés et utiles
+
+2. Réflexion personnelle
+1. Quelles sont les principales difficultés rencontrées lors de l’exposition de l’API RESTful ?
+2. Qu’avez-vous appris en matière de bonnes pratiques REST ?
+3. Quels choix techniques avez-vous faits pour la documentation, les tests et la sécurité ?
+4. Que souhaiteriez-vous améliorer dans un futur projet API ?
+
+3
+
+

@@ -1,0 +1,438 @@
+Grille d’auto-évaluation
+Partie 2 : Labs 3, 4 et 5 — LOG430
+
+Niveaux d’évaluation
+Chaque critère est évalué selon l’un des quatre niveaux suivants :
+— Excellent : Le travail dépasse les attentes, complet, structuré, pertinent et justifié de façon
+approfondie.
+— Suffisant : Le travail répond aux attentes de base avec des justifications claires.
+— Suffisant avec améliorations : Le travail montre des efforts mais présente des lacunes ou
+manque de clarté.
+— Insuffisant : Le critère est absent, incorrect ou mal exécuté.
+
+1
+
+Grille d’évaluation détaillée
+Critère
+
+Excellent
+
+Suffisant
+
+Suffisant
+avec
+améliorations
+
+Insuffisant
+
+1. Extension API RESTful (Labo 3)
+
+API complète et
+stateless, respect du
+pattern MVC ou
+hexagonal,
+routes
+cohérentes, couche
+métier isolée, tests
+fonctionnels.
+Spécification OpenAPI 3.0 exhaustive,
+UI intégrée (Swagger
+UI/Redoc),
+exemples d’appels,
+versionnage clair.
+CORS pour toutes
+origines/méthodes,
+authentification (Basic/JWT), endpoints
+protégés.
+Tests
+automatisés
+(MockMVC/JUnit),
+collection Postman,
+CI continue verte à
+chaque commit.
+Scénarios réalistes,
+métriques
+Prometheus,
+dashboard
+Grafana complet (4
+Golden Signals).
+
+API exposée avec
+routes claires, séparation de couches à
+affiner.
+
+Exposition partielle,
+logique métier mélangée.
+
+Pas d’API REST ou
+principes non respectés.
+
+Documentation présente, UI minimale,
+exemples ou versionnage partiels.
+
+Fichier
+Swagger
+incomplet, absence
+d’exemples ou de
+codes d’erreur.
+
+Aucune documentation ou non conforme
+à OpenAPI.
+
+CORS et auth basiques configurés.
+
+CORS partiel, sécurité superficielle.
+
+Pas de CORS ou
+endpoints non protégés.
+
+Tests unitaires et
+manuels
+basiques,
+CI
+déclenchée,
+couverture partielle.
+
+Tests partiels, pipeline instable.
+
+Pas de tests ou CI
+non fonctionnel.
+
+Tests de charge et
+métriques basiques,
+dashboard partiel.
+
+Test isolé, métriques
+non intégrées.
+
+Pas de test de charge
+ou observabilité.
+
+2.
+Documentation
+Swagger/OpenAPI
+(Labo 3)
+2
+3. Sécurité et CORS
+(Labo 3)
+
+4. Tests
+(Labo 3)
+
+&
+
+CI/CD
+
+5. Test de charge &
+observabilité
+initiale
+(Labo 4)
+
+Critère
+
+Excellent
+
+6. Load balancing & résilience (Labo 4)
+
+Load
+balancer Balancing configuré,
+tests basiques.
+(NGINX/HAProxy/Traefik),
+tests RPS et pannes
+simulées, tolérance
+validée.
+Cache (Spring @Ca- Cache implémenté,
+mesures de latence
+cheable/Redis),
+règles d’invalidation, partielles.
+tests
+avant/après,
+gains documentés.
+≥ 4 services conte- 4 services conteneuneurisés,
+respon- risés, responsabilités
+sabilités claires et globales identifiées.
+uniques
+(SRP),
+communication
+uniquement via API.
+Modèles
+Domain, DDD
+esquissé,
+Application, Infra- Contexts identifiés
+structure clairement sans détails.
+définis,
+Bounded
+Context identifiés.
+Gateway configurée Gateway
+basique,
+(routes dynamiques, routes OK.
+CORS, auth, logging).
+Réplication des ser- Balancing via Gatevices, balancing opé- way, tests sans anarationnel, comparatif lyse détaillée.
+tests sans/avec.
+
+7. Caching des
+points (Labo 4)
+
+end-
+
+8. Découpage microservices (Labo 5)
+3
+9. Organisation DDD
+
+10. Configuration
+l’API Gateway
+
+de
+
+11. Load balancing via
+Gateway
+
+Suffisant
+
+Suffisant
+avec
+améliorations
+
+Insuffisant
+
+Balancer
+présent,
+tests incomplets.
+
+Pas de load balancing ou configuration
+incorrecte.
+
+Cache ajouté sans
+tests systématiques.
+
+Pas de cache ou mauvaise configuration.
+
+2–3 services, découpage partiel.
+
+Monolithe, absence
+de découpage.
+
+Tentative de DDD,
+Contexts flous.
+
+Pas d’organisation
+DDD.
+
+Gateway
+statique,
+middleware
+manquant.
+
+Pas de Gateway ou
+configuration
+non
+fonctionnelle.
+
+Balancing présent,
+tests limités.
+
+Pas de balancing ou
+tests non faits.
+
+Critère
+
+Excellent
+
+Suffisant
+
+Suffisant
+avec
+améliorations
+
+Insuffisant
+
+12. Logging
+
+Logging
+centralisé
+(ELK/Promtail/Loki),
+niveaux configurés,
+traces distribuées.
+Dashboards Grafana
+à jour, comparatif
+d’architectures
+avec métriques et
+captures d’écran.
+Rapport
+détaillé
+des
+optimisations
+(load
+balancing,
+caching), résultats
+chiffrés, graphiques
+et recommandations.
+Rapport
+Arc42
+structuré,
+ADR
+architecturaux
+inclus, documentation
+technique à jour,
+collection
+Postman et guide de
+déploiement.
+
+Logging local ou minimal, niveaux basiques.
+
+Logging partiel, pas
+de corrélation.
+
+Pas de logging ou
+logs inutilisables.
+
+Dashboards et comparatif basiques.
+
+Observabilité
+partielle,
+comparatifs
+limités.
+
+Aucune observabilité
+ou comparatif.
+
+Rapport
+succinct,
+quelques résultats et
+graphiques.
+
+Rapport
+manque
+critique.
+
+partiel,
+d’analyse
+
+Pas de rapport ou
+analyse.
+
+Rapport Arc42 et
+ADR de base, docs et
+tests/API partiels.
+
+Documentation
+superficielle,
+ADR
+incomplets.
+
+Aucune documentation, ADR ou tests.
+
+13. Observabilité
+comparatif
+
+et
+
+14. Rapport d’analyse
+
+4
+15. Documentation et
+API
+
+Autoévaluation à compléter par l’étudiant(e)
+Date :
+Nom et prénom :
+Pour chaque critère, cochez la case correspondant à votre niveau et ajoutez un court commentaire :
+Critère 1. Extension API RESTful (Labo 3)
+□ Excellent □ Suffisant □ Suffisant avec améliorations
+Commentaire :
+
+□ Insuffisant
+
+Critère 2. Documentation Swagger/OpenAPI (Labo 3)
+□ Excellent □ Suffisant □ Suffisant avec améliorations
+Commentaire :
+
+□ Insuffisant
+
+Critère 3. Sécurité et CORS (Labo 3)
+□ Excellent □ Suffisant □ Suffisant avec améliorations
+Commentaire :
+
+□ Insuffisant
+
+Critère 4. Tests & CI/CD (Labo 3)
+□ Excellent □ Suffisant
+Commentaire :
+
+□ Suffisant avec améliorations
+
+□ Insuffisant
+
+Critère 5. Test de charge & observabilité initiale (Labo 4)
+□ Excellent □ Suffisant □ Suffisant avec améliorations
+Commentaire :
+
+□ Insuffisant
+
+Critère 6. Load balancing & résilience (Labo 4)
+□ Excellent □ Suffisant □ Suffisant avec améliorations
+Commentaire :
+
+□ Insuffisant
+
+Critère 7. Caching des endpoints (Labo 4)
+□ Excellent □ Suffisant □ Suffisant avec améliorations
+Commentaire :
+
+□ Insuffisant
+
+Critère 8. Découpage microservices (Labo 5)
+□ Excellent □ Suffisant □ Suffisant avec améliorations
+Commentaire :
+
+□ Insuffisant
+
+Critère 9. Organisation DDD (Labo 5)
+□ Excellent □ Suffisant □ Suffisant avec améliorations
+Commentaire :
+
+□ Insuffisant
+
+Critère 10. Configuration de l’API Gateway (Labo 5)
+□ Excellent □ Suffisant □ Suffisant avec améliorations
+Commentaire :
+
+□ Insuffisant
+
+Critère 11. Load balancing via Gateway (Labo 5)
+□ Excellent □ Suffisant □ Suffisant avec améliorations
+Commentaire :
+
+□ Insuffisant
+
+Critère 12. Logging (Labo 5)
+□ Excellent □ Suffisant
+Commentaire :
+
+□ Insuffisant
+
+□ Suffisant avec améliorations
+
+5
+
+Critère 13. Observabilité et comparatif (Labo 5)
+□ Excellent □ Suffisant □ Suffisant avec améliorations
+Commentaire :
+
+□ Insuffisant
+
+Critère 14. Rapport d’analyse (Labo 5)
+□ Excellent □ Suffisant □ Suffisant avec améliorations
+Commentaire :
+
+□ Insuffisant
+
+Critère 15. Documentation et API (Labo 5)
+□ Excellent □ Suffisant □ Suffisant avec améliorations
+Commentaire :
+
+□ Insuffisant
+
+6
+
+
