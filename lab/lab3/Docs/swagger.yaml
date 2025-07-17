@@ -1,0 +1,119 @@
+openapi: 3.0.0
+info:
+  title: API Multi-Magasins
+  version: 1.0.0
+  description: API RESTful pour la gestion multi-magasins, centre logistique et maison mère.
+servers:
+  - url: http://localhost:5000/api/v1
+paths:
+  /stores/{id}/stock:
+    get:
+      summary: Consulter le stock d’un magasin
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Stock du magasin
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  stock:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        produit:
+                          type: string
+                        quantite:
+                          type: integer
+  /report:
+    get:
+      summary: Générer un rapport consolidé des ventes
+      responses:
+        '200':
+          description: Rapport consolidé
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  rapport:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        magasin:
+                          type: string
+                        total_ventes:
+                          type: number
+                        ventes:
+                          type: integer
+  /products/{id}:
+    put:
+      summary: Mettre à jour un produit
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nom:
+                  type: string
+                prix:
+                  type: number
+                categorie:
+                  type: string
+      responses:
+        '200':
+          description: Produit mis à jour
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  produit:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                      nom:
+                        type: string
+                      prix:
+                        type: number
+                      categorie:
+                        type: string
+  /dashboard:
+    get:
+      summary: Visualiser les performances globales
+      responses:
+        '200':
+          description: Tableau de bord des indicateurs clés
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  indicateurs:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        magasin:
+                          type: string
+                        chiffre_affaires:
+                          type: number
+                        alertes_stock:
+                          type: integer
