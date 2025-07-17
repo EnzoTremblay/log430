@@ -1,67 +1,66 @@
-# Application Hello World
+
+# Projet LOG430 – Architecture Logicielle
 
 ## Description
-Ceci est une application Python minimale qui affiche "Hello World" dans la console. Le projet est conteneurisé avec Docker, orchestré avec Docker Compose, et inclut un pipeline CI/CD configuré avec GitHub Actions.
+Ce dépôt regroupe tous les laboratoires du cours LOG430, chacun avec son code, sa documentation, ses rapports, ses suivis et ses fiches d’auto-évaluation. Le projet illustre la progression vers une architecture microservices, l’intégration d’API RESTful, la gestion du cache, le load balancing, l’observabilité, et l’orchestration via API Gateway.
 
 ## Structure du Projet
 ```
-/home/log430
-├── app.py                 # Fichier principal de l'application
-├── test_app.py            # Tests unitaires pour l'application
-├── Dockerfile             # Dockerfile pour conteneuriser l'application
-├── docker-compose.yml     # Configuration Docker Compose
-└── .github/workflows/ci.yml # Workflow GitHub Actions pour CI/CD
+log430/
+├── app.py                  # Application principale
+├── test_app.py             # Tests unitaires globaux
+├── Dockerfile              # Conteneurisation de l’app principale
+├── docker-compose.yml      # Orchestration multi-services
+├── README.md               # Présent document
+├── pdf_txt/                # Exigences et auto-évaluations (.txt)
+├── lab/
+│   ├── lab0/ … lab7/       # Dossiers de chaque laboratoire
+│   │   ├── Docs/           # Documentation, ADR, UML, rapports
+│   │   ├── suivi.md        # Journal de suivi des changements
+│   │   ├── rapport.md      # Rapport du labo
+│   │   ├── README.md       # Instructions spécifiques au labo
+│   │   └── [code, tests]   # Implémentations et tests
+│   └── …
+└── .github/workflows/ci.yml # Pipeline CI/CD (si applicable)
 ```
 
-## Prérequis
-- Python 3.10 ou supérieur
-- Docker et Docker Compose
-- Compte GitHub pour le pipeline CI/CD
+## Livrables et Remise
+- Chaque labo contient :
+  - Code source et tests
+  - Documentation (README, rapport, ADR, UML)
+  - Fiche d’auto-évaluation (.txt)
+  - Journal de suivi (suivi.md)
+- Tous les fichiers .txt sont conservés pour la correction.
+- Les tags Git marquent chaque étape/labo pour la traçabilité.
+
+### Pour la remise :
+1. Zippez le dossier `lab/` et le dossier `pdf_txt/`.
+2. Fournissez le lien GitHub du dépôt.
+3. Vérifiez que tous les fichiers sont bien poussés et versionnés.
 
 ## Installation et Utilisation
 
-### 1. Exécuter l'Application Localement
+### 1. Exécution locale
 ```bash
 python3 app.py
 ```
 
-### 2. Exécuter les Tests Unitaires
-Installer `pytest` si ce n'est pas déjà fait :
+### 2. Tests unitaires
 ```bash
 pip install pytest
-```
-Lancer les tests :
-```bash
 pytest
 ```
 
-### 3. Construire et Exécuter avec Docker
-Construire l'image Docker :
+### 3. Docker & Docker Compose
 ```bash
-docker build -t hello-world-app .
-```
-Exécuter le conteneur :
-```bash
-docker run --rm hello-world-app
-```
-
-### 4. Orchestrer avec Docker Compose
-Démarrer l'application avec Docker Compose :
-```bash
+docker build -t log430-app .
 docker-compose up
 ```
 
-### 5. Pipeline CI/CD
-Le workflow GitHub Actions est configuré pour :
-- Exécuter les tests unitaires
-- Construire l'image Docker
-- Pousser l'image sur Docker Hub
-
-Pour utiliser le pipeline :
-1. Poussez votre code dans un dépôt GitHub.
-2. Configurez les secrets dans le dépôt pour les identifiants Docker Hub :
-   - `DOCKER_USERNAME` : Votre nom d'utilisateur Docker Hub
-   - `DOCKER_PASSWORD` : Votre mot de passe Docker Hub
+## CI/CD
+Un pipeline GitHub Actions peut être configuré pour :
+- Exécuter les tests
+- Construire et publier les images Docker
 
 ## Licence
-Ce projet est sous licence MIT.
+Projet sous licence MIT.
