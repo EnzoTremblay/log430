@@ -1,0 +1,16 @@
+@startuml
+!theme spacelab
+actor Client
+participant "API Gateway" as GW
+participant "Panier Service" as Panier
+participant "Commande Service" as Commande
+participant "Stock Service" as Stock
+Client -> GW : Valider panier
+GW -> Panier : Vérifier contenu
+Panier -> Commande : Créer commande
+Commande -> Stock : Réserver stock
+Stock --> Commande : Confirmation
+Commande --> Panier : Confirmation
+Panier --> GW : OK
+GW --> Client : Commande validée
+@enduml

@@ -1,0 +1,8 @@
+@startuml
+!theme spacelab
+package "Monolithe (Lab 3)" {
+  [App principale]
+  [Base de données]
+  [App principale] --> [Base de données]
+}
+@enduml

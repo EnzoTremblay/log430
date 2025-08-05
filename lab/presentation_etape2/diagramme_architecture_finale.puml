@@ -1,0 +1,18 @@
+@startuml
+!theme spacelab
+node "API Gateway (KrakenD)" {
+  [Gateway]
+}
+node "Services" {
+  [Stock Service]
+  [Ventes Service]
+  [Panier Service]
+  [Commande Service]
+  [Comptes Clients Service]
+}
+[Gateway] --> [Stock Service]
+[Gateway] --> [Ventes Service]
+[Gateway] --> [Panier Service]
+[Gateway] --> [Commande Service]
+[Gateway] --> [Comptes Clients Service]
+@enduml

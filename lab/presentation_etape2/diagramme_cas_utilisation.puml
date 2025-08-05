@@ -1,0 +1,10 @@
+@startuml
+!theme spacelab
+actor Client
+actor Employé
+(Client) --> (Passer commande)
+(Client) --> (Consulter stock)
+(Client) --> (Gérer panier)
+(Employé) --> (Mettre à jour stock)
+(Employé) --> (Consulter ventes)
+@enduml

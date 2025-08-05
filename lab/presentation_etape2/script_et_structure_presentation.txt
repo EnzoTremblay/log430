@@ -1,0 +1,75 @@
+# Structure du support visuel (PowerPoint)
+
+1. Titre & Introduction
+   - Sujet, équipe, contexte du projet
+
+2. Architecture initiale (Lab 3)
+   - Schéma : diagramme_architecture_initiale.puml
+   - Explication du monolithe, limites rencontrées
+
+3. Architecture finale (Lab 5)
+   - Schéma : diagramme_architecture_finale.puml
+   - Séparation des domaines : stock, ventes, panier, commande, comptes clients
+   - Rôle de la Gateway/API Gateway
+
+4. Décisions techniques majeures (ADR)
+   - Ex : Choix de la Gateway (KrakenD)
+   - Ex : Séparation des services (microservices)
+   - Ex : Ajout de l’observabilité (Prometheus, Grafana)
+
+5. Diagrammes UML (modèle 4+1)
+   - Cas d’utilisation : diagramme_cas_utilisation.puml
+   - Séquence (scénario commande) : diagramme_sequence_commande.puml
+
+6. Performances & impact des améliorations
+   - Réduction des latences (caching Redis)
+   - Load balancing (NGINX, KrakenD)
+   - Limites de la machine (CPU, mémoire)
+   - Saturation DB évitée par le cache
+
+7. Limites observées
+   - Nombre d’instances supportées
+   - Problèmes de configuration
+   - Limites de l’environnement local
+
+8. Conclusion & ouverture
+   - Bilan, perspectives, questions
+
+---
+
+# Script de présentation (à suivre à l’oral)
+
+## Slide 1 : Introduction
+Bonjour à tous, nous allons vous présenter l’évolution de notre système logiciel du Lab 3 au Lab 5, en mettant l’accent sur les choix architecturaux et leurs impacts.
+
+## Slide 2 : Architecture initiale
+Au départ, notre système était un monolithe (voir schéma). Toutes les fonctionnalités étaient regroupées dans une seule application connectée à une base de données unique. Cette approche a montré ses limites en termes de scalabilité et de maintenance.
+
+## Slide 3 : Architecture finale
+Nous avons migré vers une architecture microservices, chaque domaine fonctionnel étant isolé : gestion des stocks, ventes, panier, commandes, comptes clients. Une API Gateway (KrakenD) centralise les accès. Cette séparation améliore la scalabilité, la robustesse et la clarté du code.
+
+## Slide 4 : Décisions techniques
+Deux décisions structurantes :
+- L’adoption d’une API Gateway (KrakenD) pour centraliser et sécuriser les accès.
+- La séparation des services pour isoler les domaines et faciliter l’évolution.
+Nous avons aussi ajouté l’observabilité avec Prometheus et Grafana pour monitorer le système.
+
+## Slide 5 : Diagrammes UML
+Voici un diagramme de cas d’utilisation qui montre les principales interactions utilisateurs, et un diagramme de séquence illustrant le scénario de validation d’une commande.
+
+## Slide 6 : Performances & améliorations
+Grâce au caching (Redis), nous avons réduit les latences et évité la saturation de la base de données. Le load balancing (NGINX/KrakenD) a permis une meilleure répartition de la charge. Nous avons aussi identifié les limites de notre machine (CPU, mémoire) lors des tests de charge.
+
+## Slide 7 : Limites observées
+Nous avons rencontré des limites sur le nombre d’instances supportées, des problèmes de configuration réseau, et des contraintes liées à l’environnement local.
+
+## Slide 8 : Conclusion
+En conclusion, la migration vers une architecture microservices a permis d’améliorer la robustesse et la scalabilité du système. Nous restons ouverts à vos questions !
+
+---
+
+# Conseils
+- Utilise les diagrammes générés dans les slides correspondantes.
+- Prévois 1 à 2 minutes par slide, laisse 5 minutes pour les questions.
+- Mets en avant les impacts concrets des choix techniques.
+- Sois synthétique et dynamique dans la présentation.
