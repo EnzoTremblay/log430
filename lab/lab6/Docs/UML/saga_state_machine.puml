@@ -1,0 +1,13 @@
+@startuml saga_state_machine
+!theme spacelab
+[*] --> INIT
+INIT --> RESERVE_STOCK : start/reserve_stock
+RESERVE_STOCK --> CHARGE_PAYMENT : next [ok]/charge_payment
+RESERVE_STOCK --> FAILED : fail [ko]
+CHARGE_PAYMENT --> CREATE_SHIPMENT : next [ok]/create_shipment
+CHARGE_PAYMENT --> COMPENSATE_STOCK : fail [ko]/compensate_stock
+CREATE_SHIPMENT --> COMPLETE : next [ok]
+CREATE_SHIPMENT --> REFUND_PAYMENT : fail [ko]/refund_payment
+REFUND_PAYMENT --> COMPENSATE_STOCK : finalize_fail/compensate_stock
+COMPENSATE_STOCK --> FAILED : finalize
+@enduml

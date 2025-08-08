@@ -1,0 +1,16 @@
+@startuml sequence_success_commande
+!theme spacelab
+actor Client
+participant Orchestrateur
+participant Stock
+participant Paiement
+participant Expédition
+Client -> Orchestrateur : passerCommande()
+Orchestrateur -> Stock : reserver()
+Stock --> Orchestrateur : ok
+Orchestrateur -> Paiement : charger()
+Paiement --> Orchestrateur : ok
+Orchestrateur -> Expédition : creer()
+Expédition --> Orchestrateur : ok
+Orchestrateur --> Client : confirmation
+@enduml
