@@ -1,0 +1,10 @@
+@startuml usecase_orchestrateur
+!theme spacelab
+actor Client
+actor Admin
+(Client) --> (Passer une commande)
+(Client) --> (Payer une commande)
+(Client) --> (Suivre le statut de commande)
+(Admin) --> (Superviser l'orchestrateur)
+(Admin) --> (Rejouer une compensation)
+@enduml

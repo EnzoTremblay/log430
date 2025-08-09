@@ -11,42 +11,130 @@ Je propose l’introduction d’une saga orchestrée pour le processus de comman
 - Vue Processus : étapes RESERVE_STOCK → CHARGE_PAYMENT → CREATE_SHIPMENT avec chemins d’échec.
 - Vue Implémentation (conceptuelle) : l’orchestrateur encapsule le contrôle; services externes réels restent découplés.
 
-### 3.1 Diagramme d’état
+### 3.1 Déploiement
+Voir `Docs/UML/deployment_orchestrateur.puml`.
+
+![Déploiement orchestrateur](UML/deployment_orchestrateur.png)
 
 ```plantuml
-@startuml saga_state_machine
+@startuml deployment_orchestrateur
 !theme spacelab
-[*] --> INIT
-INIT --> RESERVE_STOCK : start/reserve_stock
-RESERVE_STOCK --> CHARGE_PAYMENT : next [ok]/charge_payment
-RESERVE_STOCK --> FAILED : fail [ko]
-CHARGE_PAYMENT --> CREATE_SHIPMENT : next [ok]/create_shipment
-CHARGE_PAYMENT --> COMPENSATE_STOCK : fail [ko]/compensate_stock
-CREATE_SHIPMENT --> COMPLETE : next [ok]
-CREATE_SHIPMENT --> REFUND_PAYMENT : fail [ko]/refund_payment
-REFUND_PAYMENT --> COMPENSATE_STOCK : finalize_fail/compensate_stock
-COMPENSATE_STOCK --> FAILED : finalize
+node "Cluster Docker" {
+  node "API Gateway (KrakenD)" {
+    component "Gateway" as GW
+  }
+  node "Orchestrateur" {
+    component "Order Orchestrator" as ORCH
+    database "Saga Store" as SAGA_DB
+  }
+  node "Services" {
+    component "Stock Service" as STK
+    component "Payment Service" as PAY
+    component "Shipping Service" as SHIP
+  }
+  database "DB Stock" as DB_STK
+  database "DB Payment" as DB_PAY
+  database "DB Shipping" as DB_SHIP
+}
+GW --> ORCH
+ORCH --> STK
+ORCH --> PAY
+ORCH --> SHIP
+STK --> DB_STK
+PAY --> DB_PAY
+SHIP --> DB_SHIP
+ORCH --> SAGA_DB
 @enduml
 ```
 
-### 3.2 Diagramme de séquence (succès)
+### 3.2 Séquence
+Voir `Docs/UML/sequence_saga_orchestrateur.puml`.
+
+![Séquence orchestrateur](UML/sequence_saga_orchestrateur.png)
 
 ```plantuml
-@startuml sequence_success_commande
+@startuml sequence_saga_orchestrateur
 !theme spacelab
 actor Client
-participant Orchestrateur
-participant Stock
-participant Paiement
-participant Expédition
-Client -> Orchestrateur : passerCommande()
-Orchestrateur -> Stock : reserver()
-Stock --> Orchestrateur : ok
-Orchestrateur -> Paiement : charger()
-Paiement --> Orchestrateur : ok
-Orchestrateur -> Expédition : creer()
-Expédition --> Orchestrateur : ok
-Orchestrateur --> Client : confirmation
+participant Gateway as GW
+participant Orchestrateur as ORCH
+participant "Stock Service" as STK
+participant "Payment Service" as PAY
+participant "Shipping Service" as SHIP
+
+Client -> GW : POST /commande
+GW -> ORCH : startOrder()
+ORCH -> STK : reserver()
+STK --> ORCH : ok
+ORCH -> PAY : charger()
+alt paiement ok
+  PAY --> ORCH : ok
+  ORCH -> SHIP : creer()
+  SHIP --> ORCH : ok
+  ORCH --> GW : 201 Created
+else paiement échec
+  PAY --> ORCH : fail(reason)
+  ORCH -> STK : compenserReservation()
+  ORCH --> GW : 409 Conflict
+end
+@enduml
+```
+
+### 3.3 Classes
+Voir `Docs/UML/classes_saga_orchestrateur.puml`.
+
+![Classes orchestrateur](UML/classes_saga_orchestrateur.png)
+
+```plantuml
+@startuml classes_saga_orchestrateur
+!theme spacelab
+class OrderOrchestrator {
+  +startOrder(cmd: CreateOrder)
+  +onStockReserved()
+  +onPaymentCharged()
+  +onShipmentCreated()
+  -compensateStock()
+  -refundPayment()
+  -state: SagaState
+}
+class SagaState {
+  +current: State
+  +transition(evt: Event)
+}
+class StockClient {
+  +reserver(items)
+  +compenserReservation()
+}
+class PaymentClient {
+  +charger(total)
+  +rembourser(paymentId)
+}
+class ShippingClient {
+  +creer(expedition)
+}
+
+OrderOrchestrator --> SagaState
+OrderOrchestrator ..> StockClient
+OrderOrchestrator ..> PaymentClient
+OrderOrchestrator ..> ShippingClient
+@enduml
+```
+
+### 3.4 Cas d’utilisation
+Voir `Docs/UML/usecase_orchestrateur.puml`.
+
+![Cas d’utilisation orchestrateur](UML/usecase_orchestrateur.png)
+
+```plantuml
+@startuml usecase_orchestrateur
+!theme spacelab
+actor Client
+actor Admin
+(Client) --> (Passer une commande)
+(Client) --> (Payer une commande)
+(Client) --> (Suivre le statut de commande)
+(Admin) --> (Superviser l'orchestrateur)
+(Admin) --> (Rejouer une compensation)
 @enduml
 ```
 

@@ -1,0 +1,32 @@
+@startuml classes_saga_orchestrateur
+!theme spacelab
+class OrderOrchestrator {
+  +startOrder(cmd: CreateOrder)
+  +onStockReserved()
+  +onPaymentCharged()
+  +onShipmentCreated()
+  -compensateStock()
+  -refundPayment()
+  -state: SagaState
+}
+class SagaState {
+  +current: State
+  +transition(evt: Event)
+}
+class StockClient {
+  +reserver(items)
+  +compenserReservation()
+}
+class PaymentClient {
+  +charger(total)
+  +rembourser(paymentId)
+}
+class ShippingClient {
+  +creer(expedition)
+}
+
+OrderOrchestrator --> SagaState
+OrderOrchestrator ..> StockClient
+OrderOrchestrator ..> PaymentClient
+OrderOrchestrator ..> ShippingClient
+@enduml

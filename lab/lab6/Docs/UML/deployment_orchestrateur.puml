@@ -1,0 +1,28 @@
+@startuml deployment_orchestrateur
+!theme spacelab
+node "Cluster Docker" {
+  node "API Gateway (KrakenD)" {
+    component "Gateway" as GW
+  }
+  node "Orchestrateur" {
+    component "Order Orchestrator" as ORCH
+    database "Saga Store" as SAGA_DB
+  }
+  node "Services" {
+    component "Stock Service" as STK
+    component "Payment Service" as PAY
+    component "Shipping Service" as SHIP
+  }
+  database "DB Stock" as DB_STK
+  database "DB Payment" as DB_PAY
+  database "DB Shipping" as DB_SHIP
+}
+GW --> ORCH
+ORCH --> STK
+ORCH --> PAY
+ORCH --> SHIP
+STK --> DB_STK
+PAY --> DB_PAY
+SHIP --> DB_SHIP
+ORCH --> SAGA_DB
+@enduml

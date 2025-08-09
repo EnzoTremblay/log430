@@ -1,0 +1,25 @@
+@startuml sequence_saga_orchestrateur
+!theme spacelab
+actor Client
+participant Gateway as GW
+participant Orchestrateur as ORCH
+participant "Stock Service" as STK
+participant "Payment Service" as PAY
+participant "Shipping Service" as SHIP
+
+Client -> GW : POST /commande
+GW -> ORCH : startOrder()
+ORCH -> STK : reserver()
+STK --> ORCH : ok
+ORCH -> PAY : charger()
+alt paiement ok
+  PAY --> ORCH : ok
+  ORCH -> SHIP : creer()
+  SHIP --> ORCH : ok
+  ORCH --> GW : 201 Created
+else paiement échec
+  PAY --> ORCH : fail(reason)
+  ORCH -> STK : compenserReservation()
+  ORCH --> GW : 409 Conflict
+end
+@enduml
