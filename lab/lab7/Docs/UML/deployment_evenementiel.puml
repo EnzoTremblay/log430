@@ -1,0 +1,29 @@
+@startuml deployment_evenementiel
+!theme spacelab
+node "Cluster Docker" {
+  node "Gateway (KrakenD)" {
+    component "API Gateway" as APIGW
+  }
+  node "Services" {
+    component "Service Commande" as S_CMD
+    component "Service Paiement" as S_PAY
+    component "Service Stock" as S_STK
+    component "Service Comptes" as S_ACC
+  }
+  node "Messaging" {
+    component "Kafka/Redpanda" as BUS
+    component "Schema Registry" as REG
+  }
+  database "DB Commande" as DB_CMD
+  database "DB Paiement" as DB_PAY
+  database "DB Stock" as DB_STK
+}
+
+S_CMD --> BUS
+S_PAY --> BUS
+S_STK --> BUS
+APIGW --> S_CMD
+S_CMD --> DB_CMD
+S_PAY --> DB_PAY
+S_STK --> DB_STK
+@enduml

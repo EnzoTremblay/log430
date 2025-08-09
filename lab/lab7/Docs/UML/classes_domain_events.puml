@@ -1,0 +1,44 @@
+@startuml classes_domain_events
+!theme spacelab
+class OrderCreated {
+  +orderId: UUID
+  +customerId: UUID
+  +items: List<Item>
+  +total: Money
+}
+class PaymentAuthorized {
+  +orderId: UUID
+  +paymentId: UUID
+}
+class PaymentFailed {
+  +orderId: UUID
+  +reason: String
+}
+class StockReserved {
+  +orderId: UUID
+  +reservations: Map<Sku,Qty>
+}
+class StockNotReserved {
+  +orderId: UUID
+  +reason: String
+}
+class OrderConfirmed {
+  +orderId: UUID
+}
+class Item {
+  +sku: String
+  +qty: int
+  +price: Money
+}
+class Money {
+  +amount: decimal
+  +currency: String
+}
+
+OrderCreated "1" *-- "many" Item
+OrderConfirmed ..> OrderCreated
+PaymentAuthorized ..> OrderCreated
+PaymentFailed ..> OrderCreated
+StockReserved ..> OrderCreated
+StockNotReserved ..> OrderCreated
+@enduml

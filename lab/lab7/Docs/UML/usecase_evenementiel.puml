@@ -1,0 +1,10 @@
+@startuml usecase_evenementiel
+!theme spacelab
+actor Client
+actor Admin
+(Client) --> (Passer une commande)
+(Client) --> (Payer une commande)
+(Client) --> (Consulter le statut)
+(Admin) --> (Superviser les événements)
+(Admin) --> (Rejouer depuis DLQ)
+@enduml

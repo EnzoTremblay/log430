@@ -1,0 +1,18 @@
+@startuml sequence_commande_evenements
+!theme spacelab
+actor Client
+participant Gateway
+participant "Service Commande" as COM
+participant "Kafka" as BUS
+participant "Service Paiement" as PAY
+participant "Service Stock" as STOCK
+Client -> Gateway : POST /commande
+Gateway -> COM : createOrder()
+COM -> BUS : OrderCreated
+PAY -> BUS : PaymentAuthorized
+BUS -> STOCK : ReserveStock
+STOCK -> BUS : StockReserved
+BUS -> COM : OrderConfirmed
+COM -> Gateway : 201 Created
+note over BUS,COM : Les échecs publient PaymentFailed/StockNotReserved
+@enduml

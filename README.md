@@ -61,15 +61,10 @@ Un pipeline GitHub Actions peut être configuré pour :
 - Exécuter les tests
 - Construire et publier les images Docker
 
-## Lab 6 – Saga orchestrée et machine d’état
-
-- Code: `lab/lab6/src/`
-- Tests: `lab/lab6/tests/`
+## Lab 6 – Proposition (sans implémentation)
 - Docs: `lab/lab6/Docs/`
-
-Exécution locale (PowerShell):
-- python -m venv .venv; .\.venv\Scripts\Activate.ps1; pip install -r lab/lab6/requirements.txt
-- pytest lab/lab6/tests -q
+- Code et tests retirés (proposition documentaire uniquement)
+- Diagrammes PlantUML et ADR inclus
 
 ## Licence
 Projet sous licence MIT.

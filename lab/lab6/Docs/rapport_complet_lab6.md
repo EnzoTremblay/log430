@@ -1,18 +1,17 @@
-# Rapport complet – Laboratoire 6 : Saga orchestrée et machine d’état
+# Rapport complet – Laboratoire 6 : Proposition de saga orchestrée et machine d’état
 
 ## 1. Contexte et objectifs
-Dans ce laboratoire, j’implémente une saga orchestrée pour le processus de commande impliquant la réservation de stock, le paiement et l’expédition. L’objectif est de garantir la cohérence des opérations en présence d’échecs et de gérer les compensations.
+Je propose l’introduction d’une saga orchestrée pour le processus de commande (réservation de stock, paiement, expédition) afin d’assurer cohérence et compensations.
 
-## 2. Architecture et décisions (ADR)
-- ADR 1 : Orchestration centralisée de la saga – un orchestrateur pilote le flux et déclenche les compensations.
-- ADR 2 : Machine d’état – utilisation de `transitions` pour modéliser états, gardes, et actions.
+## 2. Décisions d’architecture (ADR)
+- ADR 1 : Orchestration centralisée – un orchestrateur pilote le flux et déclenche les compensations.
+- ADR 2 : Machine d’état – modéliser explicitement états, transitions, gardes et actions.
 
 ## 3. Conception (UML 4+1)
-- Vue Processus : La saga suit les étapes RESERVE_STOCK -> CHARGE_PAYMENT -> CREATE_SHIPMENT avec chemins d’échec.
-- Vue Logique : L’orchestrateur encapsule la logique de contrôle, les services externes sont abstraits.
-- Vue Implémentation : `OrderSaga` modèle la machine d’état (voir diagrammes UML).
+- Vue Processus : étapes RESERVE_STOCK → CHARGE_PAYMENT → CREATE_SHIPMENT avec chemins d’échec.
+- Vue Implémentation (conceptuelle) : l’orchestrateur encapsule le contrôle; services externes réels restent découplés.
 
-Diagramme d’état de la saga:
+### 3.1 Diagramme d’état
 
 ```plantuml
 @startuml saga_state_machine
@@ -30,7 +29,7 @@ COMPENSATE_STOCK --> FAILED : finalize
 @enduml
 ```
 
-Diagramme de séquence (succès):
+### 3.2 Diagramme de séquence (succès)
 
 ```plantuml
 @startuml sequence_success_commande
@@ -51,22 +50,12 @@ Orchestrateur --> Client : confirmation
 @enduml
 ```
 
-## 4. Implémentation
-`OrderSaga` utilise la librairie `transitions` et expose `run()` pour orchestrer la progression. Des flags permettent de simuler les issues pour les tests.
-
-## 5. Tests
-Trois tests valident :
-- le chemin de succès (état final COMPLETE),
-- l’échec au paiement avec compensation (état final FAILED),
-- l’échec à l’expédition avec remboursement + compensation (état final FAILED).
-
-## 6. Exécution
-- Installer dépendances et exécuter `pytest lab/lab6/tests -q`.
-
-## 7. Limites et perspectives
-- Simulation des services externes par flags; un test d’intégration avec mocks serait un plus.
-- Persistance de la saga non implémentée; une outbox/event store pourrait être ajoutée.
+## 4. Impacts et plan d’adoption
+- Introduire un orchestrateur (service dédié) et définir les interfaces avec Stock/Paiement/Expédition.
+- Formaliser la machine d’état (états/transitions), journaliser chaque transition.
+- Prévoir des actions de compensation documentées et testables.
+- Étapes: (1) définir contrat API, (2) créer orchestrateur minimal, (3) brancher services, (4) tests d’échec/compensation, (5) observabilité.
 
 ---
 
-Document rédigé avec l’aide de GitHub Copilot.
+Document narratif de proposition (aucune implémentation logicielle dans ce lab).
