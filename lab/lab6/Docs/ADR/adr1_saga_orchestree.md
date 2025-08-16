@@ -1,12 +1,41 @@
-# ADR 1 – Orchestration centralisée de la Saga
+# ADR 1 – Orchestration centralisée de la saga de commande
 
-## Contexte
-Le processus de commande implique plusieurs services (stock, paiement, expédition) avec des dépendances et des échecs possibles.
+## TITLE
+Orchestration centralisée de la saga de commande
 
-## Décision
-Mettre en place une saga orchestrée avec un orchestrateur central qui pilote la progression et déclenche les compensations si nécessaire.
+## STATUS
+Proposed
 
-## Conséquences
-- Visibilité claire du flux métier.
-- Gestion déterministe des erreurs.
-- Couplage accru avec l’orchestrateur (à limiter via interfaces).
+## CONTEXT
+Le processus « commande » traverse plusieurs services (Stock, Paiement, Expédition) qui peuvent échouer de façon indépendante. Nous devons garantir la cohérence de bout en bout, déclencher des compensations en cas d’échec partiel, rendre le flux observable (traces, métriques), et limiter le couplage direct entre services. L’absence d’un contrôle explicite complique le raisonnement sur les échecs et la conformité.
+
+## DECISION
+Introduire un service d’orchestration dédié qui pilote la progression de la saga (réserver stock → charger paiement → créer expédition), évalue les conditions de réussite/échec et déclenche les actions de compensation documentées. L’orchestrateur persiste l’état d’avancement et journalise chaque transition. Les interactions avec les services métiers passent par des interfaces claires (API/contrats), afin de conserver un couplage faible et la possibilité de tests isolés.
+
+## CONSEQUENCES
+Avantages
+- Visibilité centralisée du flux métier et des transitions.
+- Gestion déterministe des erreurs et des compensations.
+- Point unique pour appliquer règles de conformité et observabilité.
+
+Inconvénients / risques
+- Point de dépendance supplémentaire (disponibilité/HA requises).
+- Risque de couplage à l’orchestrateur s’il n’y a pas de contrats explicites.
+- Complexité de persistance d’état et de reprise sur incident.
+
+## COMPLIANCE
+- Contrats d’API versionnés entre Orchestrateur et services (Stock/Paiement/Expédition).
+- Modèle d’état et scénarios de compensation formalisés et conservés sous contrôle de version (voir UML).
+- Tests automatisés couvrant les chemins heureux et d’échec/compensation.
+- Journalisation structurée des transitions + métriques (taux de succès, temps de compensation).
+- Revue d’architecture obligatoire pour tout changement impactant le flux.
+
+## NOTES
+- Auteur: Équipe LOG430
+- Date: 2025-08-16
+- Liens: 
+  - Séquence: ../UML/sequence_saga_orchestrateur.puml
+  - Déploiement: ../UML/deployment_orchestrateur.puml
+  - Classes: ../UML/classes_saga_orchestrateur.puml
+  - Cas d’utilisation: ../UML/usecase_orchestrateur.puml
+  - Rapport: ../rapport_complet_lab6.md

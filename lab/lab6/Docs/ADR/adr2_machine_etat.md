@@ -1,12 +1,37 @@
-# ADR 2 – Machine d’état pour la saga
+# ADR 2 – Machine d’état explicite pour la saga
 
-## Contexte
-La saga comporte des états et transitions explicites (réserver stock, charger paiement, créer expédition, compenser, etc.).
+## TITLE
+Machine d’état explicite pour la saga
 
-## Décision
-Utiliser une machine d’état (librairie `transitions`) pour modéliser les états, gardes, et actions.
+## STATUS
+Proposed
 
-## Conséquences
-- Modèle explicite et testable.
-- Chemins d’échec/compensation gérés proprement.
-- Dépendance à une librairie tierce.
+## CONTEXT
+La saga suit un enchaînement d’états (INIT → RESERVE_STOCK → CHARGE_PAYMENT → CREATE_SHIPMENT → DONE) ponctué de conditions et d’échecs potentiels, nécessitant des transitions de compensation (ex.: release stock, refund). Un modèle implicite rend le comportement difficile à auditer et à tester.
+
+## DECISION
+Modéliser la saga à l’aide d’une machine d’état explicite (états, événements, gardes, actions). Les transitions sont persistées et journalisées. Le modèle d’état devient artefact contractuel et sert d’entrée aux tests automatisés. Les compensations sont des transitions dédiées et auditées.
+
+## CONSEQUENCES
+Avantages
+- Comportement explicite, traçable et testable.
+- Chemins d’échec/compensation gérés de façon systématique.
+- Support naturel pour la reprise après incident (re-hydratation d’état).
+
+Inconvénients / risques
+- Courbe d’apprentissage et surcoût de modélisation.
+- Risque de divergence entre modèle et implémentation si la gouvernance est faible.
+
+## COMPLIANCE
+- Diagrammes d’état et séquence versionnés (voir UML).
+- Tests unitaires et scénarios d’intégration couvrant transitions heureuses et d’échec.
+- Règles de nommage et de version des états/événements.
+- Observabilité: logs structurés par transition et corrélation par ID de saga.
+
+## NOTES
+- Auteur: Équipe LOG430
+- Date: 2025-08-16
+- Liens:
+  - Séquence: ../UML/sequence_saga_orchestrateur.puml
+  - Classes: ../UML/classes_saga_orchestrateur.puml
+  - Rapport: ../rapport_complet_lab6.md
