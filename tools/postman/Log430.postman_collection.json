@@ -1,0 +1,44 @@
+{
+  "info": {
+    "name": "LOG430 Labs",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Lab 2",
+      "item": [
+        { "name": "Get stock magasin 1", "request": { "method": "GET", "url": "{{lab2_base}}/api/v1/stores/1/stock" } },
+        { "name": "Get rapport", "request": { "method": "GET", "url": "{{lab2_base}}/api/v1/report" } },
+        { "name": "Update produit 1", "request": { "method": "PUT", "header": [{"key":"Content-Type","value":"application/json"}], "body": {"mode":"raw","raw":"{\n  \"prix\": 19.99,\n  \"stock\": 50\n}"}, "url": "{{lab2_base}}/api/v1/products/1" } },
+        { "name": "Dashboard", "request": { "method": "GET", "url": "{{lab2_base}}/api/v1/dashboard" } }
+      ]
+    },
+    {
+      "name": "Lab 3",
+      "item": [
+        { "name": "Get stock magasin 1", "request": { "method": "GET", "url": "{{lab3_base}}/api/v1/stores/1/stock" } },
+        { "name": "Get rapport", "request": { "method": "GET", "url": "{{lab3_base}}/api/v1/report" } },
+        { "name": "Update produit 1", "request": { "method": "PUT", "header": [{"key":"Content-Type","value":"application/json"}], "body": {"mode":"raw","raw":"{\n  \"prix\": 21.5,\n  \"stock\": 40\n}"}, "url": "{{lab3_base}}/api/v1/products/1" } },
+        { "name": "Dashboard", "request": { "method": "GET", "url": "{{lab3_base}}/api/v1/dashboard" } }
+      ]
+    },
+    {
+      "name": "Lab 5 Services",
+      "item": [
+        { "name": "Produits: list", "request": { "method": "GET", "url": "{{produits_base}}/api/v1/products" } },
+        { "name": "Produits: update #1", "request": { "method": "PUT", "header": [{"key":"Content-Type","value":"application/json"}], "body": {"mode":"raw","raw":"{\n  \"prix\": 9.99\n}"}, "url": "{{produits_base}}/api/v1/products/1" } },
+        { "name": "Ventes: list", "request": { "method": "GET", "url": "{{ventes_base}}/api/v1/sales" } },
+        { "name": "Stock: list", "request": { "method": "GET", "url": "{{stock_base}}/api/v1/stock" } },
+        { "name": "Clients: create", "request": { "method": "POST", "header": [{"key":"Content-Type","value":"application/json"}], "body": {"mode":"raw","raw":"{\n  \"nom\": \"Alice\"\n}"}, "url": "{{clients_base}}/api/v1/clients" } },
+        { "name": "Panier: create", "request": { "method": "POST", "header": [{"key":"Content-Type","value":"application/json"}], "body": {"mode":"raw","raw":"{\n  \"client_id\": 1,\n  \"produits\": [1,2]\n}"}, "url": "{{panier_base}}/api/v1/cart" } },
+        { "name": "Commande: checkout", "request": { "method": "POST", "header": [{"key":"Content-Type","value":"application/json"}], "body": {"mode":"raw","raw":"{\n  \"client_id\": 1,\n  \"panier_id\": 1\n}"}, "url": "{{commande_base}}/api/v1/checkout" } }
+      ]
+    },
+    {
+      "name": "Gateway (Docker only)",
+      "item": [
+        { "name": "Produits via gateway", "request": { "method": "GET", "url": "{{gateway_base}}/api/v1/products" } }
+      ]
+    }
+  ]
+}

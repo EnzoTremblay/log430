@@ -39,31 +39,42 @@ log430/
 
 ## Installation et Utilisation
 
-### 1. Exécution locale
-```bash
-python3 app.py
-```
+### 1) Exécution locale des labs (Windows PowerShell)
+- Démarrer les services principaux (Lab 2, Lab 3, Lab 5):
+  - PowerShell: `./start_labs.ps1`
+- Arrêter et libérer les ports: 
+  - PowerShell: `./stop_labs.ps1`
 
-### 2. Tests unitaires
-```bash
-pip install pytest
-pytest
-```
+Notes:
+- Lab 3 utilise `PYTHONPATH` pour les imports lorsque lancé directement; le script s’en occupe.
+- Tous les services Flask tournent en mode dev pour démonstration.
 
-### 3. Docker & Docker Compose
-```bash
-docker build -t log430-app .
-docker-compose up
-```
+### 2) Tests unitaires
+- Lancer tous les tests (Labs 2 → 6):
+  - PowerShell: `./run_tests.ps1`
+
+### 3) Tests de fumée (HTTP) sur les services démarrés
+- Après `start_labs.ps1`, valider les endpoints:
+  - PowerShell: `./smoke_tests.ps1`
+
+### 4) Docker & Docker Compose (optionnel)
+- Stack prête pour Labs 2, 3, 5 + gateway KrakenD.
+- Démarrer:
+  - PowerShell: `docker compose -f docker-compose.labs.yml up --build`
+- Services exposés:
+  - Lab 2 API: http://localhost:5202
+  - Lab 3 API: http://localhost:5203
+  - Lab 5 services: produits:5001, ventes:5002, stock:5003, clients:5004, panier:5005, commande:5006
+  - API Gateway KrakenD: http://localhost:8080
 
 ## CI/CD
 Un pipeline GitHub Actions peut être configuré pour :
 - Exécuter les tests
 - Construire et publier les images Docker
 
-## Lab 6 – Proposition (sans implémentation)
+## Lab 6 – Proposition (avec code minimal)
 - Docs: `lab/lab6/Docs/`
-- Code et tests retirés (proposition documentaire uniquement)
+- Code minimal d’orchestration de saga + tests unitaires: `lab/lab6/src/`, `lab/lab6/tests/`
 - Diagrammes PlantUML et ADR inclus
 
 ## Licence
@@ -74,7 +85,7 @@ Projet sous licence MIT.
 ### Docker Compose (Labs 2, 3, 5 + gateway)
 - Fichier: `docker-compose.labs.yml`
 - Démarrer:
-  - docker compose -f docker-compose.labs.yml up --build
+  - PowerShell: `docker compose -f docker-compose.labs.yml up --build`
 - Services exposés:
   - Lab 2 API: http://localhost:5202
   - Lab 3 API: http://localhost:5203
@@ -84,11 +95,11 @@ Projet sous licence MIT.
 ### Par labo
 - Lab 1: documentation uniquement (voir `lab/lab1`)
 - Lab 2: API Flask (mémoire)
-  - Local: python lab/lab2/src/api.py
+  - Local: `python lab/lab2/src/api.py` ou `./start_labs.ps1`
   - Docker: http://localhost:5202
   - Endpoints: /api/v1/stores/<id>/stock, /api/v1/report, /api/v1/products/<id> [PUT], /api/v1/dashboard
 - Lab 3: API Flask (adapte `app.py`)
-  - Local: python lab/lab3/api.py
+  - Local: `python lab/lab3/api.py` (nécessite PYTHONPATH) ou `./start_labs.ps1`
   - Docker: http://localhost:5203
   - Endpoints identiques à Lab 2
 - Lab 4: démonstration de cache
@@ -96,7 +107,10 @@ Projet sous licence MIT.
 - Lab 5: microservices + API Gateway
   - Docker Compose (voir ci-dessus) puis appels via http://localhost:8080 selon `lab/lab5/gateway/krakend.json`
 - Lab 6: orchestrateur de saga (code minimal + docs)
-  - Tests: & "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\Python37_64\\python.exe" -m unittest -v lab.lab6.tests.test_saga
+  - Tests: `./run_tests.ps1` (section Lab 6)
 
-### Lancer tous les tests
-- PowerShell: .\run_tests.ps1
+### Postman
+- Collection et environnement fournis:
+  - `tools/postman/Log430.postman_collection.json`
+  - `tools/postman/Log430.postman_environment.json`
+- Importer dans Postman et sélectionner l’environnement « LOG430 Local ».
