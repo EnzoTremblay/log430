@@ -1,11 +1,20 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
-from .models import (
-	initialiser_donnees,
-	consulter_stock_central,
-	generer_rapport_consolide,
-	synchroniser_stock,
-)
+try:
+	# when imported as package
+	from .models import (
+		initialiser_donnees,
+		consulter_stock_central,
+		generer_rapport_consolide,
+		synchroniser_stock,
+	)
+except ImportError:  # pragma: no cover - fallback when run directly
+	from models import (
+		initialiser_donnees,
+		consulter_stock_central,
+		generer_rapport_consolide,
+		synchroniser_stock,
+	)
 
 
 def create_app() -> Flask:

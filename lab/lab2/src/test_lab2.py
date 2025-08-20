@@ -1,6 +1,9 @@
 import unittest
-from .api import create_app
-from .models import initialiser_donnees, consulter_stock_central, generer_rapport_consolide, synchroniser_stock
+import os
+import sys
+sys.path.insert(0, os.path.dirname(__file__))
+from api import create_app
+from models import initialiser_donnees, consulter_stock_central, generer_rapport_consolide, synchroniser_stock
 
 
 class Lab2TestCase(unittest.TestCase):
