@@ -1,3 +1,4 @@
+import logging
 from .state_machine import StateMachine, SagaState
 from typing import Callable
 
@@ -31,6 +32,7 @@ class Orchestrator:
         self.do_charge = do_charge
         self.do_ship = do_ship
         self.do_compensate = do_compensate
+        self._log = logging.getLogger("lab6.saga")
         self._wire()
 
     def _wire(self):
@@ -49,17 +51,28 @@ class Orchestrator:
 
     def run(self) -> SagaState:
         # start
+        self._log.debug("orchestrator run start")
         self.sm.send("start")
         if not self.sm.send("ok"):
-            return self.sm.state
+            # reserve failed => FAIL directly
+            self.sm.send("ko")
+            state = self.sm.state
+            self._log.debug("orchestrator end: %s", state.name)
+            return state
         if not self.sm.send("ok"):
             # payment failed => COMPENSATING then compensate
             self.sm.send("ko")
             self.sm.send("compensate")
-            return self.sm.state
+            state = self.sm.state
+            self._log.debug("orchestrator end: %s", state.name)
+            return state
         if not self.sm.send("ok"):
             # shipment failed => COMPENSATING then compensate
             self.sm.send("ko")
             self.sm.send("compensate")
-            return self.sm.state
-        return self.sm.state
+            state = self.sm.state
+            self._log.debug("orchestrator end: %s", state.name)
+            return state
+        state = self.sm.state
+        self._log.debug("orchestrator end: %s", state.name)
+        return state
