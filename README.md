@@ -67,6 +67,20 @@ Notes:
   - Lab 5 services: produits:5001, ventes:5002, stock:5003, clients:5004, panier:5005, commande:5006
   - API Gateway KrakenD: http://localhost:8080
 
+### 5) Lab 4 – Load balancing & cache
+- Démo de cache: `lab/lab4/cache.py` (test: `./run_tests.ps1` section Lab 4)
+- Load balancing via Nginx vers deux instances de l’API (basées sur Lab 3):
+  - Fichier Nginx: `lab/lab4/nginx.conf`
+  - Compose: `docker-compose.lab4.yml`
+  - Démarrer (nécessite Docker): `docker compose -f docker-compose.lab4.yml up --build`
+  - Appeler via Nginx: `http://localhost:5000/api/v1/...`
+  - Test de charge k6 (optionnel): `lab/lab4/test_charge.js`
+
+### 6) Tâches VS Code pratiques
+- Ouvrez Terminal > Run Task… puis:
+  - "Postman: Run LOG430 Collection (Newman)" pour exécuter la collection Postman avec l’environnement local
+  - "Smoke tests" pour valider rapidement tous les endpoints HTTP
+
 ## CI/CD
 Un pipeline GitHub Actions peut être configuré pour :
 - Exécuter les tests

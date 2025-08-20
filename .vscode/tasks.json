@@ -1,0 +1,35 @@
+{
+  "$schema": "vscode://schemas/tasks",
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Postman: Run LOG430 Collection (Newman)",
+      "type": "shell",
+      "command": "npx",
+      "args": [
+        "-y",
+        "newman",
+        "run",
+        "tools/postman/Log430.postman_collection.json",
+        "-e",
+        "tools/postman/Log430.postman_environment.json",
+        "--color",
+        "on"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Smoke tests",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        ".\\smoke_tests.ps1"
+      ],
+      "problemMatcher": []
+    }
+  ]
+}
