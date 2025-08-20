@@ -1,12 +1,8 @@
 # ADR 1 – Orchestration centralisée de la saga de commande
 
-## TITLE
+## TITRE
 
 Orchestration centralisée de la saga de commande
-
-## STATUS
-
-Proposed
 
 ## CONTEXT
 
@@ -37,13 +33,3 @@ Inconvénients / risques
 - Tests automatisés couvrant les chemins heureux et d’échec/compensation.
 - Journalisation structurée des transitions + métriques (taux de succès, temps de compensation).
 - Revue d’architecture obligatoire pour tout changement impactant le flux.
-
-## NOTES
-
-- Date: 2025-08-16
-- Liens:
-  - Séquence: ../UML/sequence_saga_orchestrateur.puml
-  - Déploiement: ../UML/deployment_orchestrateur.puml
-  - Classes: ../UML/classes_saga_orchestrateur.puml
-  - Cas d’utilisation: ../UML/usecase_orchestrateur.puml
-  - Rapport: ../rapport_complet_lab6.md

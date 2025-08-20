@@ -1,12 +1,8 @@
 # ADR 2 – Machine d’état explicite pour la saga
 
-## TITLE
+## TITRE
 
 Machine d’état explicite pour la saga
-
-## STATUS
-
-Proposed
 
 ## CONTEXT
 
@@ -35,11 +31,3 @@ Inconvénients / risques
 - Tests unitaires et scénarios d’intégration couvrant transitions heureuses et d’échec.
 - Règles de nommage et de version des états/événements.
 - Observabilité: logs structurés par transition et corrélation par ID de saga.
-
-## NOTES
-
-- Date: 2025-08-16
-- Liens:
-  - Séquence: ../UML/sequence_saga_orchestrateur.puml
-  - Classes: ../UML/classes_saga_orchestrateur.puml
-  - Rapport: ../rapport_complet_lab6.md
