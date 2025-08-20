@@ -1,0 +1,105 @@
+version: '3.8'
+
+services:
+  lab2:
+    image: python:3.11-slim
+    working_dir: /app
+    volumes:
+      - ./:/app
+    command: >-
+      sh -c "pip install --no-cache-dir Flask==2.2.5 Flask-Cors==3.0.10
+      && python lab/lab2/src/api.py"
+    ports:
+      - "5202:5000"  # host:container
+
+  lab3:
+    image: python:3.11-slim
+    working_dir: /app
+    volumes:
+      - ./:/app
+    command: >-
+      sh -c "pip install --no-cache-dir Flask==2.2.5 Flask-Cors==3.0.10
+      && python lab/lab3/api.py"
+    ports:
+      - "5203:5000"
+
+  produits:
+    image: python:3.11-slim
+    working_dir: /app
+    volumes:
+      - ./:/app
+    command: >-
+      sh -c "pip install --no-cache-dir Flask==2.2.5
+      && python lab/lab5/services/produits.py"
+    ports:
+      - "5001:5001"
+
+  ventes:
+    image: python:3.11-slim
+    working_dir: /app
+    volumes:
+      - ./:/app
+    command: >-
+      sh -c "pip install --no-cache-dir Flask==2.2.5
+      && python lab/lab5/services/ventes.py"
+    ports:
+      - "5002:5002"
+
+  stock:
+    image: python:3.11-slim
+    working_dir: /app
+    volumes:
+      - ./:/app
+    command: >-
+      sh -c "pip install --no-cache-dir Flask==2.2.5
+      && python lab/lab5/services/stock.py"
+    ports:
+      - "5003:5003"
+
+  clients:
+    image: python:3.11-slim
+    working_dir: /app
+    volumes:
+      - ./:/app
+    command: >-
+      sh -c "pip install --no-cache-dir Flask==2.2.5
+      && python lab/lab5/services/clients.py"
+    ports:
+      - "5004:5004"
+
+  panier:
+    image: python:3.11-slim
+    working_dir: /app
+    volumes:
+      - ./:/app
+    command: >-
+      sh -c "pip install --no-cache-dir Flask==2.2.5
+      && python lab/lab5/services/panier.py"
+    ports:
+      - "5005:5005"
+
+  commande:
+    image: python:3.11-slim
+    working_dir: /app
+    volumes:
+      - ./:/app
+    command: >-
+      sh -c "pip install --no-cache-dir Flask==2.2.5
+      && python lab/lab5/services/commande.py"
+    ports:
+      - "5006:5006"
+
+  gateway:
+    image: devopsfaith/krakend:2.5
+    depends_on:
+      - produits
+      - ventes
+      - stock
+      - clients
+      - panier
+      - commande
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./lab/lab5/gateway/krakend.json:/etc/krakend/krakend.json:ro
+    command: ["run", "-c", "/etc/krakend/krakend.json", "-d"]

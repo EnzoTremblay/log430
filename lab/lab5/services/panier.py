@@ -7,4 +7,4 @@ def add_to_cart():
     return jsonify({'cart_id': 1, 'items': [data]}), 201
 
 if __name__ == '__main__':
-    app.run(port=5005)
+    app.run(host='0.0.0.0', port=5005)
