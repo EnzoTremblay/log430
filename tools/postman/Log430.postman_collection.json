@@ -7,37 +7,314 @@
     {
       "name": "Lab 2",
       "item": [
-        { "name": "Get stock magasin 1", "request": { "method": "GET", "url": "{{lab2_base}}/api/v1/stores/1/stock" } },
-        { "name": "Get rapport", "request": { "method": "GET", "url": "{{lab2_base}}/api/v1/report" } },
-        { "name": "Update produit 1", "request": { "method": "PUT", "header": [{"key":"Content-Type","value":"application/json"}], "body": {"mode":"raw","raw":"{\n  \"prix\": 19.99,\n  \"stock\": 50\n}"}, "url": "{{lab2_base}}/api/v1/products/1" } },
-        { "name": "Dashboard", "request": { "method": "GET", "url": "{{lab2_base}}/api/v1/dashboard" } }
+        {
+          "name": "Get stock magasin 1",
+          "request": { "method": "GET", "url": "{{lab2_base}}/api/v1/stores/1/stock" },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('status 200', function () { pm.response.to.have.status(200); });",
+                  "const json = pm.response.json();",
+                  "pm.test('has stock', function () { pm.expect(json).to.have.property('stock'); });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get rapport",
+          "request": { "method": "GET", "url": "{{lab2_base}}/api/v1/report" },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('status 200', function () { pm.response.to.have.status(200); });",
+                  "const json = pm.response.json();",
+                  "pm.test('has rapport', function () { pm.expect(json).to.have.property('rapport'); });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Update produit 1",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"prix\": 19.99,\n  \"stock\": 50\n}" },
+            "url": "{{lab2_base}}/api/v1/products/1"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('status 200', function () { pm.response.to.have.status(200); });",
+                  "const json = pm.response.json();",
+                  "pm.test('id echoed', function () { pm.expect(json.produit.id).to.eql(1); });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Dashboard",
+          "request": { "method": "GET", "url": "{{lab2_base}}/api/v1/dashboard" },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('status 200', function () { pm.response.to.have.status(200); });",
+                  "const json = pm.response.json();",
+                  "pm.test('has indicateurs', function () { pm.expect(json).to.have.property('indicateurs'); });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        }
       ]
     },
     {
       "name": "Lab 3",
       "item": [
-        { "name": "Get stock magasin 1", "request": { "method": "GET", "url": "{{lab3_base}}/api/v1/stores/1/stock" } },
-        { "name": "Get rapport", "request": { "method": "GET", "url": "{{lab3_base}}/api/v1/report" } },
-        { "name": "Update produit 1", "request": { "method": "PUT", "header": [{"key":"Content-Type","value":"application/json"}], "body": {"mode":"raw","raw":"{\n  \"prix\": 21.5,\n  \"stock\": 40\n}"}, "url": "{{lab3_base}}/api/v1/products/1" } },
-        { "name": "Dashboard", "request": { "method": "GET", "url": "{{lab3_base}}/api/v1/dashboard" } }
+        {
+          "name": "Get stock magasin 1",
+          "request": { "method": "GET", "url": "{{lab3_base}}/api/v1/stores/1/stock" },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('status 200', function () { pm.response.to.have.status(200); });",
+                  "const json = pm.response.json();",
+                  "pm.test('has stock', function () { pm.expect(json).to.have.property('stock'); });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Get rapport",
+          "request": { "method": "GET", "url": "{{lab3_base}}/api/v1/report" },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('status 200', function () { pm.response.to.have.status(200); });",
+                  "const json = pm.response.json();",
+                  "pm.test('has rapport', function () { pm.expect(json).to.have.property('rapport'); });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Update produit 1",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"prix\": 21.5,\n  \"stock\": 40\n}" },
+            "url": "{{lab3_base}}/api/v1/products/1"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('status 200', function () { pm.response.to.have.status(200); });",
+                  "const json = pm.response.json();",
+                  "pm.test('id echoed', function () { pm.expect(json.produit.id).to.eql(1); });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Dashboard",
+          "request": { "method": "GET", "url": "{{lab3_base}}/api/v1/dashboard" },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('status 200', function () { pm.response.to.have.status(200); });",
+                  "const json = pm.response.json();",
+                  "pm.test('has indicateurs', function () { pm.expect(json).to.have.property('indicateurs'); });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        }
       ]
     },
     {
       "name": "Lab 5 Services",
       "item": [
-        { "name": "Produits: list", "request": { "method": "GET", "url": "{{produits_base}}/api/v1/products" } },
-        { "name": "Produits: update #1", "request": { "method": "PUT", "header": [{"key":"Content-Type","value":"application/json"}], "body": {"mode":"raw","raw":"{\n  \"prix\": 9.99\n}"}, "url": "{{produits_base}}/api/v1/products/1" } },
-        { "name": "Ventes: list", "request": { "method": "GET", "url": "{{ventes_base}}/api/v1/sales" } },
-        { "name": "Stock: list", "request": { "method": "GET", "url": "{{stock_base}}/api/v1/stock" } },
-        { "name": "Clients: create", "request": { "method": "POST", "header": [{"key":"Content-Type","value":"application/json"}], "body": {"mode":"raw","raw":"{\n  \"nom\": \"Alice\"\n}"}, "url": "{{clients_base}}/api/v1/clients" } },
-        { "name": "Panier: create", "request": { "method": "POST", "header": [{"key":"Content-Type","value":"application/json"}], "body": {"mode":"raw","raw":"{\n  \"client_id\": 1,\n  \"produits\": [1,2]\n}"}, "url": "{{panier_base}}/api/v1/cart" } },
-        { "name": "Commande: checkout", "request": { "method": "POST", "header": [{"key":"Content-Type","value":"application/json"}], "body": {"mode":"raw","raw":"{\n  \"client_id\": 1,\n  \"panier_id\": 1\n}"}, "url": "{{commande_base}}/api/v1/checkout" } }
+        {
+          "name": "Produits: list",
+          "request": { "method": "GET", "url": "{{produits_base}}/api/v1/products" },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('status 200', function () { pm.response.to.have.status(200); });",
+                  "pm.test('is array', function () { pm.expect(pm.response.json()).to.be.an('array'); });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Produits: update #1",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"prix\": 9.99\n}" },
+            "url": "{{produits_base}}/api/v1/products/1"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('status 200', function () { pm.response.to.have.status(200); });",
+                  "pm.test('id echoed', function () { pm.expect(pm.response.json().id).to.eql(1); });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Ventes: list",
+          "request": { "method": "GET", "url": "{{ventes_base}}/api/v1/sales" },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('status 200', function () { pm.response.to.have.status(200); });",
+                  "pm.test('is array', function () { pm.expect(pm.response.json()).to.be.an('array'); });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Stock: list",
+          "request": { "method": "GET", "url": "{{stock_base}}/api/v1/stock" },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('status 200', function () { pm.response.to.have.status(200); });",
+                  "pm.test('is array', function () { pm.expect(pm.response.json()).to.be.an('array'); });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Clients: create",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"nom\": \"Alice\"\n}" },
+            "url": "{{clients_base}}/api/v1/clients"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('status 201', function () { pm.response.to.have.status(201); });",
+                  "pm.test('has id', function () { pm.expect(pm.response.json()).to.have.property('id'); });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Panier: create",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"client_id\": 1,\n  \"produits\": [1,2]\n}" },
+            "url": "{{panier_base}}/api/v1/cart"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('status 201', function () { pm.response.to.have.status(201); });",
+                  "pm.test('has cart_id', function () { pm.expect(pm.response.json()).to.have.property('cart_id'); });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Commande: checkout",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"client_id\": 1,\n  \"panier_id\": 1\n}" },
+            "url": "{{commande_base}}/api/v1/checkout"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('status 201', function () { pm.response.to.have.status(201); });",
+                  "pm.test('has order_id', function () { pm.expect(pm.response.json()).to.have.property('order_id'); });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        }
       ]
     },
     {
       "name": "Gateway (Docker only)",
       "item": [
-        { "name": "Produits via gateway", "request": { "method": "GET", "url": "{{gateway_base}}/api/v1/products" } }
+        {
+          "name": "Produits via gateway",
+          "request": { "method": "GET", "url": "{{gateway_base}}/api/v1/products" },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('status 200', function () { pm.response.to.have.status(200); });"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        }
       ]
     }
   ]
